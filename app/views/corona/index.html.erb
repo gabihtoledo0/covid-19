@@ -1,2 +1,282 @@
-<h1>Corona#index</h1>
-<p>Find me in app/views/corona/index.html.erb</p>
+
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+	<meta charset="utf-8">
+    <meta name="author" content="Leandro">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   
+    
+    
+    <title>Covid19 | Coronavirus (COVID-19) </title>
+   
+    
+</head>
+
+<body class="nk-body">
+
+    <div class="nk-wrap">
+        <header class="nk-header bg-light has-overlay" id="home">
+            <div class="overlay shape shape-a"></div><!-- Overlay Shape -->
+            <div class="nk-navbar is-light is-sticky" id="navbar">
+                <div class="container">
+                    <div class="nk-navbar-wrap">
+                        <div class="nk-navbar-logo logo">
+                            <a href="./" class="logo-link"></a>
+                                
+                                <img src="<%= image_url('logo-dark.png') %>" class="img-logo-dark" alt="logo covid">
+                            </a>
+                        </div><!-- .nk-navbar-logo -->
+                        <div class="nk-navbar-toggle d-lg-none">
+                            <a href="#" class="toggle" data-menu-toggle="navbar-menu"><em class="icon-menu icon ni ni-menu"></em><em class="icon-close icon ni ni-cross"></em></a>
+                        </div><!-- .nk-navbar-toggle -->
+                        <nav class="nk-navbar-menu" id="navbar-menu">
+                            <ul class="nk-menu">
+                                <li class="nk-menu-item"><a class="scrollto nav-link nk-menu-link" href="#home">INICIO</a></li>
+                                <li class="nk-menu-item"><a class="scrollto nav-link nk-menu-link" href="#about">CURIOSIDADES</a></li>
+                                <li class="nk-menu-item"><a class="scrollto nav-link nk-menu-link" href="#symptoms">SINTOMAS</a></li>
+                                <li class="nk-menu-item"><a class="scrollto nav-link nk-menu-link" href="#news">MAPA</a></li>
+                                <li class="nk-menu-item"><a href="https://coronavirus.saude.gov.br/" target="_blank" href="#treatment">LOGIN</a></li>
+                               
+                               
+                                <li class="nk-menu-item"><a href="https://coronavirus.saude.gov.br/" target="_blank" href="#news">QUIZ</a></li>
+                                <li class="nk-menu-item"><a href="https://coronavirus.saude.gov.br/" target="_blank" href="#news">FORUM</a></li>
+                            </ul>
+                            
+                        </nav><!-- .nk-navbar-menu -->
+                    </div><!-- .nk-navbar-wrap -->
+                </div><!-- .container -->
+            </div><!-- .nk-navbar -->
+            <div class="nk-banner">
+                <div class="container">
+                    <div class="row g-gs align-items-center justify-content-between">
+                        <div class="col-lg-5 order-lg-last">
+                            <div class="nk-banner-image">
+                                
+                                <img src="<%= image_url('header-a.png') %>" class="nk-banner-image" alt="mulher tossindo">
+                            </div>
+                        </div><!-- .col -->
+                        <div class="col-lg-6">
+                            <div class="nk-banner-block">
+                                <div class="content">
+                                    <h1 class="heading">
+                                        <span>CORONA</span>
+                                        <span class="heading-sm">
+                                            <span class="sup">COVID-19</span>
+                                            <span class="sub">VIRUS</span>
+                                        </span>
+                                    </h1>
+                                    <p>O Coronavírus (COVID-19) foi relatado pela primeira vez em Wuhan, Hubei, China em dezembro de 2019, o surto foi posteriormente reconhecido como uma pandemia pela Organização Mundial da Saúde (OMS) em 11 de março de 2020.</p>
+
+                                    <div class="status">
+                                        <div class="row g-gs">
+                                            <div class="col-sm-4 col-6">
+                                                <div class="status-item">
+                                                    <h6 class="title">Casos Confirmados</h6>
+                                                    <div class="h3 count">1.536.979</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-6">
+                                                <div class="status-item">
+                                                    <h6 class="title">Mortes</h6>
+                                                    <div class="h3 count">91.783</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-6">
+                                                <div class="status-item">
+                                                    <h6 class="title">Recuperados</h6>
+                                                    <div class="h3 count">344.467</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="status-note">*  Ultima atualização: 09 de abril, 2020</div>
+                                    </div><!-- .status -->
+                                </div><!-- .content -->
+                            </div><!-- .nk-banner-block -->
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .nk-banner -->
+        </header><!-- .nk-header -->
+
+        <main class="nk-pages">
+            <section class="section section-l bg-white section-about" id="about">
+                <div class="container">
+                    <div class="section-content">
+                        <div class="row g-gs justify-content-between">
+                            <div class="col-lg-7">
+                                <div class="text-block">
+                                    <h5 class="subtitle">Sobre a doença</h5>
+                                    <h2 class="title">Coronavirus <br class="d-sm-none">(COVID-19)</h2>
+                                    <p class="lead"><strong>COVID-19 é uma nova doença que pode afetar seus pulmões e vias aéreas. É causado por um vírus chamado coronavírus. Foi descoberto em dezembro de 2019 em Wuhan, Hubei, China. </p>
+                                    <p>Sinais comuns de infecção incluem sintomas respiratórios, febre, tosse, falta de ar e dificuldades respiratórias. Em casos mais graves, a infecção pode causar pneumonia, síndrome respiratória aguda grave, insuficiência renal e até morte.</p>
+                                    <p>As recomendações padrão para impedir a propagação da infecção incluem lavagem regular das mãos, cobertura de boca e nariz ao tossir e espirrar, cozinhar bem a carne e os ovos. Evite contato próximo com qualquer pessoa que apresente sintomas de doenças respiratórias, como tosse e espirros.</p>
+                                </div><!-- .text-block -->
+                            </div><!-- .col -->
+                            
+                                      
+                                </div><!-- .wgs -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .section-content -->
+                </div><!-- .container -->
+            </section><!-- .section -->
+            
+            <section class="section section-l bg-light section-spread" id="spread">
+                <div class="container">
+                    <div class="section-head text-center wide-md">
+                        <h5 class="subtitle">principais grupos de risco</h5>
+                        <h2 class="title"><br class="d-sm-none"> COVID-19</h2>
+                        <p>Be acordo com estudos publicados, os mais vulneráveis ao novo Coronavírus são pessoas idosas ou com condições pré-existentes, como problemas respiratórios ou diabéticos.
+                        A taxa de mortalidade pode chegar a 15%.</p>
+                    </div><!-- .section-head -->
+                 
+                                    </div>
+                                </div><!-- .box -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                       
+                    </div><!-- .section-content -->
+                </div><!-- .container -->
+            </section><!-- .section -->
+
+            <section class="section section-l bg-white section-symptom" id="symptoms">
+                <div class="container">
+                    <div class="section-head text-center wide-lg">
+                        <h5 class="subtitle">Quais os sintomas do COVID-19?</h5>
+                        <h2 class="title">SINTOMAS DO CORONAVIRUS</h2>
+                        <p>Os sintomas mais comuns do COVID-19 são febre, cansaço e tosse seca. Alguns pacientes podem ter dores, congestão nasal, corrimento nasal, dor de garganta ou diarréia. Esses sintomas geralmente são leves e começam progressivamente. Os sintomas podem aparecer 2-14 dias após a exposição</p>
+                    </div><!-- .section-head -->
+                    <div class="section-content">
+                        <div class="row g-gs justify-content-center">
+                            <div class="col-sm-10 col-md-8 col-lg-4">
+                                <div class="box2">
+                                    <div class="box2-gfx">
+                                        
+                                        <img src="<%= image_url('symptom-a.png') %>" class="box2-gfx" alt="sintomas">
+                                    </div>
+                                    <div class="box2-content">
+                                        <h5 class="title">Febre</h5>
+                                        <p><strong>Febre Alta</strong> – Se você sente calor ao tocar no peito ou nas costas (não é necessário medir a temperatura). É um sinal comum e também pode aparecer em 2 a 10 dias, se você foi afetado.</p>
+                                    </div>
+                                </div><!-- .box2 -->
+                            </div><!-- .col -->
+                            <div class="col-sm-10 col-md-8 col-lg-4">
+                                <div class="box2">
+                                    <div class="box2-gfx">
+                                        
+                                        <img src="<%= image_url('symptom-b.png') %>" class="box2-gfx" alt="sintomas">
+                                    </div>
+                                    <div class="box2-content">
+                                        <h5 class="title">Tosse</h5>
+                                        <p><strong>Tosse contínua</strong> – Tossir muito por mais de uma hora ou 3 ou mais episódios de tosse em 24 horas (se você costuma tossir, pode ser pior que o normal).</p>
+                                    </div>
+                                </div><!-- .box2 -->
+                            </div><!-- .col -->
+                            <div class="col-sm-10 col-md-8 col-lg-4">
+                                <div class="box2">
+                                    <div class="box2-gfx">
+                                        
+                                        <img src="<%= image_url('symptom-c.png') %>" class="box2-gfx" alt="sintomas">
+                                    </div>
+                                    <div class="box2-content">
+                                        <h5 class="title">Falta de ar</h5>
+                                        <p><strong>Dificuldade ao respirar</strong> – Cerca de 1 em cada 6 pessoas que recebem COVID-19 ficam gravemente doentes e desenvolvem dificuldade em respirar ou falta de ar.</p>
+                                    </div>
+                                </div><!-- .box2 -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                        
+                                </div><!-- .col -->
+                            </div><!-- .row -->
+                        </div>
+                    </div><!-- .section-content -->
+                </div><!-- .container -->
+            </section><!-- .section -->
+
+            <section class="section section-l bg-light section-blog" id="news">
+                <div class="container">
+                    <div class="section-head text-center wide-lg">
+                        <h5 class="subtitle">COVID-19</h5>
+                        <h2 class="title">Mapa do coronavírus</h2>
+                    </div><!-- .section-head -->
+                    <div class="section-content">
+                        <div class="row g-gs justify-content-center">
+                            <div class="col-md-9 col-lg-4">
+                                <div class="blog-item">
+                                    
+                                   <iframe style="position: relative; transform: translate(-50%, -50%); top: 50%; left: 50%;" title="Coronavirus COVID-19 Global Cases by Johns Hopkins CSSE" width="1100" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">
+                                       
+
+                                   </iframe>
+
+                                </div><!-- .blog-item -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .section-content -->
+                </div><!-- .container -->
+            </section><!-- .section -->
+        </main><!-- .nk-pages -->
+
+        <footer class="nk-footer bg-dark tc-light has-overlay">
+            <div class="overlay shape shape-c"></div><!-- Overlay Shape -->
+            <section class="section section-footer section-m tc-light">
+                <div class="container">
+                    <div class="nk-footer-top">
+                        <div class="row g-gs gy-m">
+                            <div class="col-lg-3 col-md-9 mr-auto">
+                                <div class="wgs wgs-about">
+                                    <div class="wgs-logo logo">
+                                        <a href="./" class="logo-link">
+                                            
+                                            <img src="<%= image_url('logo-white.png') %>" class="logo-link" alt="logo covid 2">
+                                        </a>
+                                    </div>
+                                    <div class="wgs-about-text">
+                                       
+                                    </div>
+                                    
+                                </div><!-- .wgs -->
+                            </div><!-- .col -->
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="wgs wgs-menu">
+                                    <h6 class="wgs-title">Link Rapido</h6>
+                                    <ul class="wgs-links">
+                                        <li><a class="scrollto" href="#symptoms">Sintomas</a></li>
+                                        <li><a class="scrollto" href="#about">Sobre o COVID</a></li>
+                                        
+                                    </ul>
+                                </div><!-- .wgs -->
+                            </div><!-- .col -->
+                            
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="wgs wgs-menu">
+                                    <h6 class="wgs-title">Links Importantes</h6>
+                                    <ul class="wgs-links">
+                                        <li><a href="https://coronavirus.saude.gov.br/" target="_blank">Ministerio da Saude</a></li>
+                                        <li><a href="https://www.saopaulo.sp.gov.br/coronavirus/" target="_blank">Governo de SP</a></li>
+                                     
+                                    </ul>
+                                </div><!-- .wgs -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .nk-footer-top -->
+                    <div class="nk-footer-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <p class="nk-copyright">&copy; 2020 COVID-19. Feito por <a>Leandro</a>.</p>
+                            </div><!-- .col -->
+                           
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .nk-footer-bottom -->
+                </div><!-- .container -->
+            </section><!-- .section -->
+        </footer><!-- .nk-footer -->
+    </div><!-- .nk-wrap -->
+
+	
+</body>
+</html>
