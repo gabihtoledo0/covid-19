@@ -1,3 +1,4 @@
+
 $('.field_with_errors').find('input').attr('style', 'border: 1px solid red');
 $('.field_with_errors').attr('style', 'background-color: transparent;')
 
@@ -96,18 +97,6 @@ var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
               $('#exist-email').popover('hide')
               $('#text-email').popover('hide')
               $("#user_email").css("border-color", "green");
-
-              // Abertura do próximo bloco de informações.
-              if ($("#user_password").val() == $("#user_password_confirmation").val() && password.test($("#user_password").val())) {
-                $("#esc_cep").show();
-                $("#esc_est").show();
-                $("#esc_cid").show();
-                $("#esc_bairro").show();
-                $("#esc_rua").show();
-                $("#esc_num").show();
-                $("#esc_botao").show();
-                $("#esc_text").hide();
-              }
             }
           });
         }
@@ -127,7 +116,7 @@ var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
         $('#exist-email').popover('hide')
       }
     });
-    
+
     $("#user_password").keyup(function () {
       var VAL = this.value;
 
@@ -147,19 +136,6 @@ var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
               // Validação no banco de dados.
               $.post('/checkemail?email='+$("#user_email").val(),function(data){
 
-                // Caso este email já exista no banco de dados.
-                if(!data.email_exists){
-                  
-                  // Abertura de novas informações.
-                  $("#esc_cep").show();
-                  $("#esc_est").show();
-                  $("#esc_cid").show();
-                  $("#esc_bairro").show();
-                  $("#esc_rua").show();
-                  $("#esc_num").show();
-                  $("#esc_botao").show();
-                  $("#esc_text").hide();
-                }
               })
             }
           }
@@ -190,7 +166,6 @@ var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
         if ($(this).val() !== $("#user_password_confirmation").val()) {
           $("#user_password_confirmation").css("border-color", "red");
             $('#text-senhaconf').popover('show')
-            
         }
 
         // Se não houver divergência de valroes.
@@ -216,31 +191,6 @@ var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
         else {
           $(this).css("border-color", "green");
           $('#text-senhaconf').popover('hide');
-
-          // A senha é valida.
-          if (password.test($("#user_password").val())) {
-
-            // O email é valido.
-            if (email.test($("#user_email").val())) {
-              
-              // Validação no banco de dados.
-              $.post('/checkemail?email='+$("#user_email").val(),function(data){
-
-                // Caso este email já exista no banco de dados.
-                if(!data.email_exists){
-                    
-                  $("#esc_cep").show();
-                  $("#esc_est").show();
-                  $("#esc_cid").show();
-                  $("#esc_bairro").show();
-                  $("#esc_rua").show();
-                  $("#esc_num").show();
-                  $("#esc_botao").show();
-                  $("#esc_text").hide();
-                }
-              })
-            }
-          }
         }
       }
 
@@ -272,12 +222,6 @@ var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
               $($("#user_cpf")).css("border-color", "green");
               $('#text-cpf').popover('hide');
               $('#exist-cpf').popover('hide');
-
-              if ($('#user_fullname').val().length > 0) {
-                $("#esc_email").show();
-                $("#esc_senha").show();
-                $("#esc_conf").show();
-              }
             }
         });
       }
@@ -304,62 +248,4 @@ var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
       $('#exist-cpf').popover('hide');
     }
   });
-
-  $("#user_cnpj").keyup(function(){
-
-    // Se o campo CNPJ for preenchido por completo.
-    if ($(this).val().length == 18){
-
-      // Se for um CNPJ válido.
-      if (TestaCNPJ($(this).val())) {
-        $.post('/checkcnpj?cnpj='+$("#user_cnpj").val(),function(data){
-
-          // Se o cnpj existir no banco de dados.
-          if(data.cnpj_exists){
-            $($("#user_cnpj")).css("border-color", "red");
-            $('#text-cnpj').popover('hide');
-            $('#exist-cnpj').popover('show');
-          }
-
-          // Se o cnpj não existir no banco de dados.
-          else{
-            $($("#user_cnpj")).css("border-color", "green");
-            $('#text-cnpj').popover('hide');
-            $('#exist-cnpj').popover('hide');
-
-            // Abertura do próximo bloco de informações.
-            if ($("#user_razaosocial").val().length > 0) {
-              $("#esc_email").show();
-              $("#esc_senha").show();
-              $("#esc_conf").show();
-            }
-          }
-        });
-      $(this).css("border-color", "green");
-      $('#text-cnpj').popover('hide')
-      }
-
-      // Se não for um CNPJ válido.
-      else {
-        $(this).css("border-color", "red");
-        $('#text-cnpj').popover('show');
-        $('#exist-cnpj').popover('hide');
-      }
-    }
-
-    // Se o campo CNPJ for preenchido parcialmente.
-    else if($(this).val().length >0){
-      $(this).css("border-color", "orange");
-      $('#text-cnpj').popover('show');
-      $('#exist-cnpj').popover('hide');
-    }
-
-    // Se o campo CNPJ não estiver preenchido.
-    else{
-      $(this).css("border-color", "rgb(132, 46, 176)");
-      $('#text-cnpj').popover('hide');
-      $('#exist-cnpj').popover('hide');
-    }
-  })
-
 });
