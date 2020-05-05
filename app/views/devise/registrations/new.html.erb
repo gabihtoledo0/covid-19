@@ -1,16 +1,17 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
+
 <script type="text/javascript">
 
   $('.field_with_errors').find('input').attr('style', 'border: 1px solid red');
   $('.field_with_errors').attr('style', 'background-color: transparent;')
-  
+
   // Regex formatação senha.
   var password = new RegExp('(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*');
-  
+
   // Regex formatação email.
   var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
-  
+
     $(document).ready(function () {
       $("#user_cep").keyup(function () {
         if ($(this).val().length == 9) {
@@ -37,14 +38,14 @@
         else if ($(this).val().length > 0){
           $("#user_cep").css("border-color", "#191970");
           $("#user_rua").val("");
-              $("#complemento").val("");
-              $("#user_bairro").val("");
-              $("#user_cidade").val("");
-              $("#user_estado").val("");
-              $('#text-cep').popover('show')
+          $("#complemento").val("");
+          $("#user_bairro").val("");
+          $("#user_cidade").val("");
+          $("#user_estado").val("");
+          $('#text-cep').popover('show')
         }
         else{
-              $("#user_cep").css("border-color", "orange");
+              $("#user_cep").css("border-color", "#ff8d02");
               $("#user_rua").val("");
               $("#complemento").val("");
               $("#user_bairro").val("");
@@ -55,23 +56,27 @@
       });
       $('#user_cep').mask('00000-000');
       
-      jQuery('#user_fullname').keyup(function () {
-     this.value = this.value.replace(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/g,'');
-   });
-  
-      $("#user_fullname").keyup(function () {
-  
-        // Se este campo já for preenchido.
+
+      $("#user_name").keyup(function () {
         if ($(this).val().length > 0){
-          $(this).css("border-color", "green");
+          $("#user_name").css("border-color", "green");
         }
-  
         // Se este campo não for preenchido.
-        else{
-          $(this).css("border-color", "orange");
+        else {
+          $("#user_name").css("border-color", "#ff8d02");
+       }
+      })
+
+      $("#user_last_name").keyup(function () {
+        if ($(this).val().length > 0){
+          $("#user_last_name").css("border-color", "green");
         }
-      });
-  
+        // Se este campo não for preenchido.
+        else {
+          $("#user_last_name").css("border-color", "#ff8d02");
+       }
+      })
+
       $(this).scrollTop(0);
   
       $("#user_email").keyup(function () {
@@ -225,7 +230,7 @@
           <%= f.label :Nome, class: 'texto-label' %>
         </div>
         <div class="col">
-          <%= f.text_field :name, autofocus: true, :style => "text-transform: capitalize;", :class => "borda-caixa-texto caixa-de-texto", :maxlength=> "20", :autocomplete => "off", required: true %>
+          <%= f.text_field :name, id: 'user_name' ,autofocus: true, :style => "text-transform: capitalize;", :class => "borda-caixa-texto caixa-de-texto", :maxlength=> "20", :autocomplete => "off", required: true %>
         </div>
       </div>
 
@@ -234,7 +239,7 @@
         <div class="col-4" align="right">
           <%= f.label :Sobrenome, class: 'texto-label' %>
         </div>
-        <div class="col" align="left">
+        <div class="col" align="left" id="user_fullname">
           <%= f.text_field :last_name, autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :maxlength=> "50", :autocomplete => "off", required: true %>
         </div>
       </div>
@@ -262,7 +267,7 @@
           <%= f.label :Estado, class: 'texto-label' %>
         </div>
         <div class="col">
-        <%= select(:user, :estado, [['São Paulo', 'SP'], ['Rio de Janeiro', 'RJ'], ['Minas Gerais', 'RJ']]) %>
+        <%= select(:user, :estado, states) %>
         </div>
       </div>
 
