@@ -15,6 +15,19 @@ ActiveRecord::Schema.define(version: 2020_04_14_002402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "possui_doenca", force: :cascade do |t|
+    t.boolean "nenhuma"
+    t.boolean "idoso"
+    t.boolean "asma"
+    t.boolean "cancer"
+    t.boolean "diabetico"
+    t.boolean "doe_cardio"
+    t.boolean "hipertensao"
+    t.boolean "fumante"
+    t.boolean "gestante"
+    t.boolean "obesidade"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -31,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_002402) do
     t.string "cidade"
     t.string "bairro"
     t.string "rua"
-    t.string "possui_doenca"
     t.boolean "possui_crianca"
     t.boolean "possui_risco"
     t.index ["email"], name: "index_users_on_email", unique: true

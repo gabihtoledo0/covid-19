@@ -8,7 +8,7 @@ class IncriveisValidator < ActiveModel::Validator
           record.errors[:password] << "deve conter um caractere especial, uma letra maiúscula, uma letra minúscula e um número."
       end
 
-      if !record.email.match(/\A[^@\s]+@youse.com.br/);
-          record.errors[:email] << "deve ser no formato 'exemplo@youse.com.br'."
+      if !record.email.match(/\A[^@\s]+@/);
+          record.errors[:email] << "deve ser no formato 'exemplo@exemplo.com.br'."
       end
 

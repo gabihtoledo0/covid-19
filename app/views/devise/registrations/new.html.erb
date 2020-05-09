@@ -1,215 +1,5 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
-
-<script type="text/javascript">
-
-  $('.field_with_errors').find('input').attr('style', 'border: 1px solid red');
-  $('.field_with_errors').attr('style', 'background-color: transparent;')
-
-  // Regex formatação senha.
-  var password = new RegExp('(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*');
-
-  // Regex formatação email.
-  var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@$');
-
-    $(document).ready(function () {
-      $("#user_cep").keyup(function () {
-        if ($(this).val().length == 9) {
-          $.ajax({
-            url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
-            dataType: 'json',
-            success: function (resposta) {
-              $("#user_rua").val(resposta.logradouro);
-              $("#complemento").val(resposta.complemento);
-              $("#user_bairro").val(resposta.bairro);
-              $("#user_cidade").val(resposta.localidade);
-              $("#user_estado").val(resposta.uf);
-              if (resposta.erro !== true ){
-                $("#user_cep").css("border-color", "green");
-                $('#text-cep').popover('hide')
-              }
-              else {
-                $("#user_cep").css("border-color", "red");
-                $('#text-cep').popover('show')
-              }
-            }
-          });
-        }
-        else if ($(this).val().length > 0){
-          $("#user_cep").css("border-color", "#191970");
-          $("#user_rua").val("");
-          $("#complemento").val("");
-          $("#user_bairro").val("");
-          $("#user_cidade").val("");
-          $("#user_estado").val("");
-          $('#text-cep').popover('show')
-        }
-        else{
-              $("#user_cep").css("border-color", "#ff8d02");
-              $("#user_rua").val("");
-              $("#complemento").val("");
-              $("#user_bairro").val("");
-              $("#user_cidade").val("");
-              $("#user_estado").val("");
-              $('#text-cep').popover('hide')
-        }
-      });
-      $('#user_cep').mask('00000-000');
-      
-
-      $("#user_name").keyup(function () {
-        if ($(this).val().length > 0){
-          $("#user_name").css("border-color", "green");
-        }
-        // Se este campo não for preenchido.
-        else {
-          $("#user_name").css("border-color", "#ff8d02");
-       }
-      })
-
-      $("#user_last_name").keyup(function () {
-        if ($(this).val().length > 0){
-          $("#user_last_name").css("border-color", "green");
-        }
-        // Se este campo não for preenchido.
-        else {
-          $("#user_last_name").css("border-color", "#ff8d02");
-       }
-      })
-
-      $(this).scrollTop(0);
-  
-      $("#user_email").keyup(function () {
-        // Atribuindo o valor do email a uma variável.
-        var VAL = this.value;
-  
-        // Se já houver algo digitado.
-        if($(this).val().length > 0){
-  
-          // Está no formato adequado.
-          if (email.test(VAL)) {
-  
-            // Validação no banco de dados.
-            $.post('/checkemail?email='+$("#user_email").val(),function(data){
-  
-              // Caso este email já exista no banco de dados.
-              if(data.email_exists){
-                $('#text-email').popover('hide')
-                $('#exist-email').popover('show')
-                $("#user_email").css("border-color", "red");
-              }
-  
-              //Caso este email ainda não exista no banco de dados.
-               else{
-                $('#exist-email').popover('hide')
-                $('#text-email').popover('hide')
-                $("#user_email").css("border-color", "green");
-              }
-            });
-          }
-  
-          // Não está no formato adequado.
-          else {
-            $(this).css("border-color", "red");
-            $('#text-email').popover('show')
-            $('#exist-email').popover('hide')
-          }
-        }
-  
-        // Se não houver nada digitado.
-        else{
-          $(this).css("border-color", "rgb(132, 46, 176)");
-          $('#text-email').popover('hide')
-          $('#exist-email').popover('hide')
-        }
-      });
-  
-      $("#user_password").keyup(function () {
-        var VAL = this.value;
-  
-        // Se o campo senha começar a ser preenchido.
-        if($(this).val().length > 0){
-  
-          // Se o campo senha estiver com a formatação correta.
-          if (password.test(VAL)) {
-            $(this).css("border-color", "green");
-            $('#text-senha').popover('hide')
-  
-            if ($(this).val() == $("#user_password_confirmation").val()){
-  
-              // Verificando formato do email.
-              if (email.test($("#user_email").val())) {
-  
-                // Validação no banco de dados.
-                $.post('/checkemail?email='+$("#user_email").val(),function(data){
-  
-                })
-              }
-            }
-          }
-  
-          // Se o campo senha estiver com a formatação incorreta.
-          else {
-            $(this).css("border-color", "red");
-            $('#text-senha').popover('show')
-          }
-        }
-  
-        // Se o campo senha estiver vazio.
-        else {
-          $(this).css("border-color", "rgb(132, 46, 176)");
-  
-          // Se o camppo confirmação for vazio.
-          if ($("#user_password_confirmation").val().length == 0){
-            $("#user_password_confirmation").css("border-color", "rgb(132, 46, 176)");
-            $('#text-senhaconf').popover('hide');
-          }
-        }
-  
-        // Se o campo confirmação de senha tiver algo.
-        if ($("#user_password_confirmation").val().length > 0){
-  
-          // Se houver divergência de valores.
-          if ($(this).val() !== $("#user_password_confirmation").val()) {
-            $("#user_password_confirmation").css("border-color", "red");
-              $('#text-senhaconf').popover('show')
-          }
-  
-          // Se não houver divergência de valroes.
-          else {
-            $("#user_password_confirmation").css("border-color", "green");
-            $('#text-senhaconf').popover('hide')
-          }
-        }
-      });
-  
-      $("#user_password_confirmation").keyup(function() {
-  
-        // Se tiver algo no campo de confirmação.
-        if ($(this).val().length > 0){
-  
-          // Se houver divergência nos campos.
-          if ($(this).val() !== $("#user_password").val() ) {
-            $(this).css("border-color", "red");
-            $('#text-senhaconf').popover('show')
-          }
-  
-          // Se forem iguais.
-          else {
-            $(this).css("border-color", "green");
-            $('#text-senhaconf').popover('hide');
-          }
-        }
-  
-        // Se não tiver algo no campo confirmação.
-        else{
-          $(this).css("border-color", "rgb(132, 46, 176)");
-         }
-       });
-  });
-  
-  </script>
-
 <section class="fundo-externo">
 
   <main>
@@ -248,18 +38,18 @@
         <div class="col-4" align="right">
           <%= f.label :Data_de_nascimento, class: 'texto-label' %>
         </div>
-        <div class="col">
-        <%= f.date_field :data_nasc, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00/00/0000" , :autocomplete => "off", required: true, :maxlength=>"4" %>
+        <div class="col" id="data">
+        <%= f.date_field :data_nasc, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00/00/0000" , :autocomplete => "off", required: true %>
         </div>
       </div>
 
-      <div class="largura-entre-campos row" data-placement="top" data-trigger="manual" data-toggle="popover" data-content="O  CEP não é válido" id="text-cep">
+      <div class="largura-entre-campos row">
         <div class="col-4" align="right">
           <%= f.label :CEP, class: 'texto-label' %>
         </div>
-        <div class="col">
-        <%= f.text_field :cep, autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00000-000", :autocomplete => "off", required: true, :maxlength=>"9" %>
-        </div>
+        <div class="col" data-placement="right" data-trigger="manual" data-toggle="popover" data-content="O  CEP não é válido" id="text-cep">
+        <%= f.text_field :cep, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00000-000", :autocomplete => "off", required: true %>
+      </div>
       </div>
 
       <div class="largura-entre-campos row">
@@ -338,59 +128,59 @@
           <div class="row">
             <div class="col-4">
               <div class="row" style="padding: 0 0 0 30px;">
-              <%= f.label :possui_doenca, class: 'texto-checkbox' , :value => 'nenhuma' do |label| %>
-              <%= f.check_box :possui_doenca%>
+              <%= f.label :nenhuma, class: 'texto-checkbox' , :value => 'nenhuma' do |label| %>
+              <%= f.check_box :nenhuma%>
                 Nenhuma
               <% end %>
               </div>
               <div class="row" style="padding: 0 0 0 30px;">
-                <%= f.label :possui_doenca, class: 'texto-checkbox' ,:value => 'idoso/a' do |label| %>
-                <%= f.check_box :possui_doenca %>
+                <%= f.label :idoso, class: 'texto-checkbox' ,:value => 'idoso/a' do |label| %>
+                <%= f.check_box :idoso %>
                   Idoso/a
                 <% end %>
               </div>
               <div class="row" style="padding: 0 0 0 30px;">
-                <%= f.label :possui_doenca,class: 'texto-checkbox' , :value => 'asma' do |label| %>
-                <%= f.check_box :possui_doenca %>
+                <%= f.label :asma,class: 'texto-checkbox' , :value => 'asma' do |label| %>
+                <%= f.check_box :asma %>
                   Asma
                 <% end %>
               </div>
               <div class="row" style="padding: 0 0 0 30px;">
-                <%= f.label :possui_doenca, class: 'texto-checkbox' ,:value => 'cancer' do |label| %>
-                <%= f.check_box :possui_doenca %>
+                <%= f.label :cancer, class: 'texto-checkbox' ,:value => 'cancer' do |label| %>
+                <%= f.check_box :cancer %>
                   Câncer
                 <% end %>
               </div>
             </div>
             <div class="col-4">
-            <%= f.label :possui_doenca,class: 'texto-checkbox' , :value => 'diabetico/a' do |label| %>
-            <%= f.check_box :possui_doenca %>
+            <%= f.label :diabetico, class: 'texto-checkbox' , :value => 'diabetico/a' do |label| %>
+            <%= f.check_box :diabetico %>
               Diabetico/a
             <% end %>
 
-            <%= f.label :possui_doenca, class: 'texto-checkbox' ,:value => 'doencas cardiovasculares' do |label| %>
-            <%= f.check_box :possui_doenca %>
+            <%= f.label :doe_cardio, class: 'texto-checkbox' ,:value => 'doencas cardiovasculares' do |label| %>
+            <%= f.check_box :doe_cardio %>
               Doenças Cardiovasculares
             <% end %>
 
-            <%= f.label :possui_doenca, class: 'texto-checkbox' ,:value => 'hipertensao' do |label| %>
-            <%= f.check_box :possui_doenca %>
+            <%= f.label :hipertensao, class: 'texto-checkbox' ,:value => 'hipertensao' do |label| %>
+            <%= f.check_box :hipertensao %>
               Hipertensão
             <% end %>
 
-            <%= f.label :possui_doenca, class: 'texto-checkbox' ,:value => 'fumante' do |label| %>
-            <%= f.check_box :possui_doenca %>
+            <%= f.label :fumante, class: 'texto-checkbox' ,:value => 'fumante' do |label| %>
+            <%= f.check_box :fumante %>
               Fumante
             <% end %>
             </div>
             <div class="col-4">
-            <%= f.label :possui_doenca, class: 'texto-checkbox' ,:value => 'gestante' do |label| %>
-            <%= f.check_box :possui_doenca %>
+            <%= f.label :gestante, class: 'texto-checkbox' ,:value => 'gestante' do |label| %>
+            <%= f.check_box :gestante %>
               Gestante
             <% end %>
 
-            <%= f.label :possui_doenca, class: 'texto-checkbox' ,:value => 'obesidade grave' do |label| %>
-            <%= f.check_box :possui_doenca %>
+            <%= f.label :obesidade, class: 'texto-checkbox' ,:value => 'obesidade grave' do |label| %>
+            <%= f.check_box :obesidade %>
               Obesidade Grave
             <% end %>
             </div>
@@ -426,4 +216,170 @@
     </div>
   </main>
 </section>
+
+<script type="text/javascript">
+
+  $('.field_with_errors').find('input').attr('style', 'border: 1px solid red');
+  $('.field_with_errors').attr('style', 'background-color: transparent;')
+
+  // Regex formatação senha.
+  var password = new RegExp('(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*');
+
+  // Regex formatação email.
+  var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@');
+
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+
+      $("#user_cep").keyup(function () {
+        if ($(this).val().length == 9) {
+          $.ajax({
+            url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
+            dataType: 'json',
+            success: function (resposta) {
+              $("#user_rua").val(resposta.logradouro);
+              $("#complemento").val(resposta.complemento);
+              $("#user_bairro").val(resposta.bairro);
+              $("#user_cidade").val(resposta.localidade);
+              $("#user_estado").val(resposta.uf);
+              if (resposta.erro !== true ){
+                $("#user_cep").css("border-color", "green");
+                $('#text-cep').popover('hide')
+              }
+              else {
+                $("#user_cep").css("border-color", "red");
+                $("#text-cep").popover('show');
+              }
+            }
+          });
+        }
+        else if ($(this).val().length > 0){
+          $("#user_cep").css("border-color", "#191970");
+          $("#user_rua").val("");
+          $("#complemento").val("");
+          $("#user_bairro").val("");
+          $("#user_cidade").val("");
+          $("#user_estado").val("");
+          $("#text-cep").popover('show');
+        }
+        else{
+              $("#user_cep").css("border-color", "#ff8d02");
+              $("#user_rua").val("");
+              $("#complemento").val("");
+              $("#user_bairro").val("");
+              $("#user_cidade").val("");
+              $("#user_estado").val("");
+              $("#text-cep").popover('hide');
+        }
+      });
+      $('#user_cep').mask('00000-000');
+
+
+      $("#user_name").keyup(function () {
+        if ($(this).val().length > 0){
+          $("#user_name").css("border-color", "green");
+        }
+        // Se este campo não for preenchido.
+        else {
+          $("#user_name").css("border-color", "#ff8d02");
+       }
+      })
+
+      $("#user_last_name").keyup(function () {
+        if ($(this).val().length > 0){
+          $("#user_last_name").css("border-color", "green");
+        }
+        // Se este campo não for preenchido.
+        else {
+          $("#user_last_name").css("border-color", "#ff8d02");
+       }
+      })
+
+
+      $("#user_password").keyup(function () {
+        var VAL = this.value;
+  
+        // Se o campo senha começar a ser preenchido.
+        if($(this).val().length > 0){
+  
+          // Se o campo senha estiver com a formatação correta.
+          if (password.test(VAL)) {
+            $(this).css("border-color", "green");
+            $('#text-senha').popover('hide')
+  
+            if ($(this).val() == $("#user_password_confirmation").val()){
+  
+              // Verificando formato do email.
+              if (email.test($("#user_email").val())) {
+  
+                // Validação no banco de dados.
+                $.post('/checkemail?email='+$("#user_email").val(),function(data){
+  
+                })
+              }
+            }
+          }
+  
+          // Se o campo senha estiver com a formatação incorreta.
+          else {
+            $(this).css("border-color", "red");
+            $('#text-senha').popover('show')
+          }
+        }
+  
+        // Se o campo senha estiver vazio.
+        else {
+          $(this).css("border-color", "#ff8d02");
+  
+          // Se o camppo confirmação for vazio.
+          if ($("#user_password_confirmation").val().length == 0){
+            $("#user_password_confirmation").css("border-color", "#ff8d02");
+            $('#text-senhaconf').popover('hide');
+          }
+        }
+  
+        // Se o campo confirmação de senha tiver algo.
+        if ($("#user_password_confirmation").val().length > 0){
+  
+          // Se houver divergência de valores.
+          if ($(this).val() !== $("#user_password_confirmation").val()) {
+            $("#user_password_confirmation").css("border-color", "red");
+              $('#text-senhaconf').popover('show')
+          }
+  
+          // Se não houver divergência de valroes.
+          else {
+            $("#user_password_confirmation").css("border-color", "green");
+            $('#text-senhaconf').popover('hide')
+          }
+        }
+      });
+  
+      $("#user_password_confirmation").keyup(function() {
+  
+        // Se tiver algo no campo de confirmação.
+        if ($(this).val().length > 0){
+  
+          // Se houver divergência nos campos.
+          if ($(this).val() !== $("#user_password").val() ) {
+            $(this).css("border-color", "red");
+            $('#text-senhaconf').popover('show')
+          }
+  
+          // Se forem iguais.
+          else {
+            $(this).css("border-color", "green");
+            $('#text-senhaconf').popover('hide');
+          }
+        }
+  
+        // Se não tiver algo no campo confirmação.
+        else{
+          $(this).css("#ff8d02");
+         }
+       });
+  });
+
+
+  </script>
 <% end %>
