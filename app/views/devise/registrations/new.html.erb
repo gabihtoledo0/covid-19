@@ -36,10 +36,10 @@
 
       <div class="largura-entre-campos row">
         <div class="col-4" align="right">
-          <%= f.label :Data_de_nascimento, class: 'texto-label' %>
+          <%= f.label :Idade, class: 'texto-label' %>
         </div>
-        <div class="col" id="data">
-        <%= f.date_field :data_nasc, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00/00/0000" , :autocomplete => "off", required: true %>
+        <div class="col">
+        <%= f.text_field :idade, id: 'idade', autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00/00/0000" , :autocomplete => "off", required: true, :maxlength=> "3" %>
         </div>
       </div>
 
@@ -66,7 +66,7 @@
           <%= f.label :Cidade, class: 'texto-label' %>
         </div>
         <div class="col">
-          <%= f.text_field :cidade, autofocus: true , :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true %>
+          <%= f.text_field :cidade, autofocus: true , readonly: true, :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true %>
 
         </div>
       </div>
@@ -76,7 +76,7 @@
           <%= f.label :Bairro, class: 'texto-label' %>
         </div>
         <div class="col">
-        <%= f.text_field :bairro, autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true %>
+        <%= f.text_field :bairro, autofocus: true, readonly: true, :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true %>
         </div>
       </div>
 
@@ -85,7 +85,7 @@
           <%= f.label :Rua, class: 'texto-label' %>
         </div>
         <div class="col">
-        <%= f.text_field :rua, autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "Logradouro/Avenida/Alameda", :autocomplete => "off", required: true%>
+        <%= f.text_field :rua, autofocus: true, readonly: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "Logradouro/Avenida/Alameda", :autocomplete => "off", required: true%>
         </div>
       </div>
 
@@ -97,7 +97,7 @@
         data-content="O Email não é válido" id="text-email">
           <div class="col" data-placement="left" data-trigger="manual" data-toggle="popover"
             data-content="Este Email já consta em nosso banco de dados, Tente outro!" id="exist-email">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
+            <%= f.email_field :email, id: 'user_email', autofocus: true, autocomplete: "email", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
           </div>
       </div>
     </div>
@@ -230,6 +230,66 @@
 
     $(document).ready(function () {
       $(this).scrollTop(0);
+
+      $("#idade").keyup(function(){
+        if ($(this) > "10"){
+          $(this).css("border-color", "green");
+        }
+        else if($(this) < "100"){
+          $(this).css("border-color", "green");
+        }
+        else {
+          $(this).css("border-color", "red");
+          }
+      });
+
+      $('#data_nasc').mask('00/00/0000');
+
+      $("#user_email").keyup(function () {
+      // Atribuindo o valor do email a uma variável.
+      var VAL = this.value;
+
+      // Se já houver algo digitado.
+      if($(this).val().length > 0){
+
+        // Está no formato adequado.
+        if (email.test(VAL)) {
+
+          // Validação no banco de dados.
+          $.post('/checkemail?email='+$("#user_email").val(),function(data){
+
+            // Caso este email já exista no banco de dados.
+            if(data.email_exists){
+              $('#text-email').popover('hide')
+              $('#exist-email').popover('show')
+              $("#user_email").css("border-color", "red");
+            }
+
+            //Caso este email ainda não exista no banco de dados.
+             else{
+              $('#exist-email').popover('hide')
+              $('#text-email').popover('hide')
+              $("#user_email").css("border-color", "green");
+
+            }
+          });
+        }
+
+        // Não está no formato adequado.
+        else {
+          $(this).css("border-color", "red");
+          $('#text-email').popover('show')
+          $('#exist-email').popover('hide')
+        }
+      }
+
+      // Se não houver nada digitado.
+      else{
+        $(this).css("border-color", "rgb(132, 46, 176)");
+        $('#text-email').popover('hide')
+        $('#exist-email').popover('hide')
+      }
+    });
 
       $("#user_cep").keyup(function () {
         if ($(this).val().length == 9) {
@@ -379,7 +439,6 @@
          }
        });
   });
-
 
   </script>
 <% end %>

@@ -13,6 +13,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
 
@@ -46,7 +47,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light" style="margin-bottom: 0px; position: sticky;  top: 0; z-index: 1071; background-color: rgb(243, 243, 243);">
     <div>
-      <a align="left" href="#">
+      <a align="left" href="/">
         <img src="<%= image_url('logo-dark.png') %> " class="logo-covid">
       </a>
     </div>
@@ -55,10 +56,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav" align="center">
-        <a class="nav-item nav-link active" href="#">Quiz <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/games/new">Quiz</a>
         <a class="nav-item nav-link" href="#">Minha Área</a>
-        <a class="nav-item nav-link" href="#">Login</a>
-        <a class="nav-item nav-link" href="#">Cadastro</a>
+        <a class="nav-item nav-link" href="/users/sign_in">Login</a>
+        <a class="nav-item nav-link" href="/users/sign_up">Cadastro</a>
       </div>
     </div>
     <p class="navbar-text">
