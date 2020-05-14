@@ -6,6 +6,7 @@
   outline: 0;
   border-width: 0 0 1px;
   border-color: #ff8d02;
+  border-radius: 5px;
   }
 
   .caixa-de-texto {
@@ -13,7 +14,7 @@
     width: 300px;
     color: #191970;
     background-color: transparent;
-    font-family: 'Roboto-Regular';
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
   }
 
@@ -34,40 +35,40 @@
   }
 
   .titulo-h2 {
-    font-family: 'Oswald-Bold';
+    font-family: 'Oswald-Bold', sans-serif;
     font-size: 40px;
     color: #ff8d02;
     margin-bottom: 40px;
   }
 
   .texto-label {
-    font-family: 'roboto';
+    font-family: 'Roboto', sans-serif;
     color: #191970;
     font-size: 16px;
   }
 
   legend {
-    font-family: 'Roboto-Bold';
+    font-family: 'Roboto-Bold', sans-serif;
     color: #191970;
   }
 
   .texto-checkbox {
     color: #ed4f61;
     font-size: 15px;
-    font-family: 'roboto';
+    font-family: 'Roboto-Bold', sans-serif;
   }
 
   .sim-radio {
     color: green;
     font-size: 15px;
-    font-family: 'roboto';
+    font-family: 'Roboto-Bold', sans-serif;
   }
 
   .nao-radio {
 
     color: #ed4f61;
     font-size: 15px;
-    font-family: 'roboto';
+    font-family: 'Roboto-Bold', sans-serif;
   }
 
   .botao-finalizar {
@@ -79,7 +80,7 @@
     width: 160px;
     height: 40px;
     font-size: 18px;
-    font-family: 'Oswald';
+    font-family: 'Oswald-Bold', sans-serif;
     color: #191970;
     outline: 0;
 
@@ -96,7 +97,7 @@
   }
 
   .link {
-    font-family: 'Roboto-regular';
+    font-family: 'Roboto-Regular', sans-serif;
     color: #191970;
     text-align: center;
     text-decoration: underline;
