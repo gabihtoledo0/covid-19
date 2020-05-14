@@ -1,8 +1,8 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
-<section class="fundo-externo">
 
-  <main>
+
+<section class="fundo-externo">
 
     <div style="width: 100%; height: 50px;">
 
@@ -39,7 +39,7 @@
           <%= f.label :Idade, class: 'texto-label' %>
         </div>
         <div class="col">
-        <%= f.text_field :idade, id: 'idade', autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00/00/0000" , :autocomplete => "off", required: true, :maxlength=> "3" %>
+        <%= f.text_field :idadee, id: 'idade', autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00/00/0000" , :autocomplete => "off", required: true, :maxlength=> "3" %>
         </div>
       </div>
 
@@ -214,8 +214,12 @@
     </div>
     <div style="width: 100%; height: 50px;">
     </div>
-  </main>
-</section>
+    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Tooltip em elemento desativado">
+      <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Botão desativado</button>
+    </span>
+  </section>
+<% end %>
+
 
 <script type="text/javascript">
 
@@ -232,15 +236,18 @@
       $(this).scrollTop(0);
 
       $("#idade").keyup(function(){
-        if ($(this) > "10"){
+        if ($(this).val().length == 0){
+          $(this).css("border-color", "#ff8d02");
+        }
+        else if ($('#idade') > 10){
           $(this).css("border-color", "green");
         }
-        else if($(this) < "100"){
+        else if($('#idade') < 100){
           $(this).css("border-color", "green");
         }
         else {
           $(this).css("border-color", "red");
-          }
+        }
       });
 
       $('#data_nasc').mask('00/00/0000');
@@ -285,7 +292,7 @@
 
       // Se não houver nada digitado.
       else{
-        $(this).css("border-color", "rgb(132, 46, 176)");
+        $(this).css("border-color", "#191970");
         $('#text-email').popover('hide')
         $('#exist-email').popover('hide')
       }
@@ -441,4 +448,3 @@
   });
 
   </script>
-<% end %>

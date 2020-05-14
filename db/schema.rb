@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_002402) do
+ActiveRecord::Schema.define(version: 2020_05_14_002747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "possui_doenca", force: :cascade do |t|
+    t.string "nenhuma"
+    t.string "idoso"
+    t.string "asma"
+    t.string "cancer"
+    t.string "diabetico"
+    t.string "doe_cardio"
+    t.string "hipertensao"
+    t.string "fumante"
+    t.string "gestante"
+    t.string "obesidade"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,12 +38,14 @@ ActiveRecord::Schema.define(version: 2020_04_14_002402) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "last_name"
-    t.string "idade"
+    t.string "data_nasc"
     t.string "cep"
     t.string "estado"
     t.string "cidade"
     t.string "bairro"
     t.string "rua"
+    t.boolean "possui_crianca"
+    t.boolean "possui_risco"
     t.boolean "nenhuma"
     t.boolean "idoso"
     t.boolean "asma"
@@ -41,8 +56,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_002402) do
     t.boolean "fumante"
     t.boolean "gestante"
     t.boolean "obesidade"
-    t.boolean "possui_crianca"
-    t.boolean "possui_risco"
+    t.string "idade"
+    t.integer "idadee"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
