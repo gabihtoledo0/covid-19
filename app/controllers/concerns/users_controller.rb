@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-skip_before_action :authenticate_user!, only: [:emailcheck]
+  skip_before_action :authenticate_user!, only: [:emailcheck]
   skip_before_action :verify_authenticity_token, only: [:emailcheck]
 
   def index
@@ -20,3 +20,4 @@ skip_before_action :authenticate_user!, only: [:emailcheck]
       format.json {render :json => {email_exists: @user.present?}}
     end
   end
+end

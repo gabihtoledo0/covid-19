@@ -18,6 +18,15 @@
     font-size: 16px;
   }
 
+  .desativado {
+    padding: 0 0 2px 5px;
+    width: 300px;
+    color: #808080;
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
+
   .fundo-externo {
     background-image: url(/assets/fundo-escuro-pequeno.jpeg);
     background-attachment: fixed;

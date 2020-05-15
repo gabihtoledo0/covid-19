@@ -20,7 +20,7 @@
           <%= f.label :Nome, class: 'texto-label' %>
         </div>
         <div class="col">
-          <%= f.text_field :name , :pattern => '[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$', id: 'user_name' ,autofocus: true, :style => "text-transform: capitalize;", :class => "borda-caixa-texto caixa-de-texto", :maxlength=> "20", :autocomplete => "off", required: true %>
+          <%= f.text_field :name, id: 'user_name' ,autofocus: true, :style => "text-transform: capitalize;", :class => "borda-caixa-texto caixa-de-texto", :maxlength=> "20", :autocomplete => "off", required: true %>
         </div>
       </div>
 
@@ -66,7 +66,7 @@
           <%= f.label :Cidade, class: 'texto-label' %>
         </div>
         <div class="col">
-          <%= f.text_field :cidade, autofocus: true , readonly: true, :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true %>
+          <%= f.text_field :cidade, autofocus: true , readonly: true, :class => "borda-caixa-texto desativado", :autocomplete => "off", required: true %>
 
         </div>
       </div>
@@ -76,7 +76,7 @@
           <%= f.label :Bairro, class: 'texto-label' %>
         </div>
         <div class="col">
-        <%= f.text_field :bairro, autofocus: true, readonly: true, :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true %>
+        <%= f.text_field :bairro, autofocus: true, readonly: true, :class => "borda-caixa-texto desativado", :autocomplete => "off", required: true %>
         </div>
       </div>
 
@@ -85,7 +85,7 @@
           <%= f.label :Rua, class: 'texto-label' %>
         </div>
         <div class="col">
-        <%= f.text_field :rua, autofocus: true, readonly: true, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "Logradouro/Avenida/Alameda", :autocomplete => "off", required: true%>
+        <%= f.text_field :rua, autofocus: true, readonly: true, :class => "borda-caixa-texto desativado", :placeholder => "Logradouro/Avenida/Alameda", :autocomplete => "off", required: true%>
         </div>
       </div>
 
@@ -93,11 +93,11 @@
         <div class="col-4" align="right">
         <%= f.label :Email, class: 'texto-label' %>
         </div>
-        <div style="padding: 0;" class="col" data-placement="left" data-trigger="manual" data-toggle="popover"
+        <div style="padding: 0;" class="col" data-placement="right" data-trigger="manual" data-toggle="popover"
         data-content="O Email não é válido" id="text-email">
-          <div class="col" data-placement="left" data-trigger="manual" data-toggle="popover"
+          <div class="col" data-placement="right" data-trigger="manual" data-toggle="popover"
             data-content="Este Email já consta em nosso banco de dados, Tente outro!" id="exist-email">
-            <%= f.email_field :email, id: 'user_email', autofocus: true, autocomplete: "email", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
           </div>
       </div>
     </div>
@@ -106,7 +106,7 @@
         <div class="col-4" align="right">
         <%= f.label :password, "Senha", class: 'texto-label' %>
         </div>
-        <div class="col" data-placement="top" data-trigger= "manual" data-toggle="popover" data-content="Senha inválida" id ="text-senha">
+        <div class="col" data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senha inválida" id ="text-senha">
           <%= f.password_field :password, autocomplete: "new-password", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
           <small id="senhaHelp" class="form-text text-muted">A senha deve conter 8 Caracteres: Letra Maiúscula e
           </br> Minúscula,
@@ -118,7 +118,7 @@
         <div class="col-4" align="right">
         <%= f.label :password_confirmation, "Confirme sua Senha", class: 'texto-label' %><br />
         </div>
-        <div class="col" data-placement="top" data-trigger= "manual" data-toggle="popover" data-content="Senhas não conferem" id ="text-senhaconf">
+        <div class="col" data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senhas não conferem" id ="text-senhaconf">
           <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
         </div>
       </div>
@@ -227,30 +227,14 @@
   // Regex formatação senha.
   var password = new RegExp('(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*');
   // Regex formatação email.
-  var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@');
+  // var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@youse.com.br$');
 
     $(document).ready(function () {
       $(this).scrollTop(0);
 
-      // $("#idade").keyup(function(){
-      //   if ($(this).val().length == 0){
-      //     $(this).css("border-color", "#ff8d02");
-      //   }
-      //   else {
-      //     if($(this) > "10"){
-      //     $(this).css("border-color", "green");
-      //   }
-      //   else if ($(this) < "100"){
-      //     $(this).css("border-color", "green");
-      //   }
-      //   else {
-      //     $(this).css("border-color", "red");
-      //   }
-      //   }
-      // });
-
 // -------------------------------------------------------------------
-      $("#user_email").keyup(function () {
+
+    $("#user_email").keyup(function () {
       // Atribuindo o valor do email a uma variável.
       var VAL = this.value;
 
@@ -261,7 +245,6 @@
         if (email.test(VAL)) {
 
           // Validação no banco de dados.
-          $.post('/checkemail?email='+$("#user_email").val(),function(data){
 
             // Caso este email já exista no banco de dados.
             if(data.email_exists){
@@ -277,24 +260,17 @@
               $("#user_email").css("border-color", "green");
 
             }
-          });
-        }
-
-        // Não está no formato adequado.
-        else {
-          $(this).css("border-color", "red");
-          $('#text-email').popover('show')
-          $('#exist-email').popover('hide')
         }
       }
 
       // Se não houver nada digitado.
       else{
-        $(this).css("border-color", "#191970");
+        $(this).css("border-color", "#ff8d02");
         $('#text-email').popover('hide')
         $('#exist-email').popover('hide')
       }
     });
+
 // ----------------------------------------------------------------------
       $("#user_cep").keyup(function () {
         if ($(this).val().length == 9) {
@@ -343,13 +319,16 @@
       $("#user_name").keyup(function () {
         if ($(this).val().length > 0){
           $(this).css("border-color", "green");
-        
       }
         // Se este campo não for preenchido.
         else {
           $(this).css("border-color", "#ff8d02");
        }
-      })
+      });
+
+      jQuery('#user_name').keyup(function () {
+        this.value = this.value.replace(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/g,'');
+      });
 
 // ---------------------------------------------------------------------------------
       $("#user_last_name").keyup(function () {
@@ -362,7 +341,11 @@
         else {
           $("#user_last_name").css("border-color", "#ff8d02");
        }
-      })
+      });
+
+      jQuery('#user_last_name').keyup(function () {
+        this.value = this.value.replace(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/g,'');
+      });
 // ------------------------------------------------------------------------------------------
 
       $("#user_password").keyup(function () {
@@ -384,7 +367,7 @@
                 // Validação no banco de dados.
                 $.post('/checkemail?email='+$("#user_email").val(),function(data){
   
-                })
+                });
               }
             }
           }
