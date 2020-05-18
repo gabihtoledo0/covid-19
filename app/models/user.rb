@@ -20,8 +20,8 @@ class IncriveisValidator < ActiveModel::Validator
             record.errors[:last_name] << "deve conter apenas letras e espaços."
         end
 
-        unless record.idade > 10 && record.idade < 100
-            record.errors[:idade] << "Idade inválida"
+        if record.idadee < 10 && record.idadee > 100
+            record.errors[:idadee] << "Idade inválida"
         end
     end
 end

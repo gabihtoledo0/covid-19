@@ -128,58 +128,58 @@
           <div class="row">
             <div class="col-4">
               <div class="row" style="padding: 0 0 0 30px;">
-              <%= f.label :nenhuma, class: 'texto-checkbox' , :value => 'nenhuma' do |label| %>
-              <%= f.check_box :nenhuma%>
+              <%= f.label :nenhuma, class: 'texto-checkbox' do |label| %>
+              <%= f.check_box :nenhuma %>
                 Nenhuma
               <% end %>
               </div>
               <div class="row" style="padding: 0 0 0 30px;">
-                <%= f.label :idoso, class: 'texto-checkbox' ,:value => 'idoso/a' do |label| %>
+                <%= f.label :idoso, class: 'texto-checkbox' do |label| %>
                 <%= f.check_box :idoso %>
                   Idoso/a
                 <% end %>
               </div>
               <div class="row" style="padding: 0 0 0 30px;">
-                <%= f.label :asma,class: 'texto-checkbox' , :value => 'asma' do |label| %>
+                <%= f.label :asma,class: 'texto-checkbox'  do |label| %>
                 <%= f.check_box :asma %>
                   Asma
                 <% end %>
               </div>
               <div class="row" style="padding: 0 0 0 30px;">
-                <%= f.label :cancer, class: 'texto-checkbox' ,:value => 'cancer' do |label| %>
+                <%= f.label :cancer, class: 'texto-checkbox' do |label| %>
                 <%= f.check_box :cancer %>
                   Câncer
                 <% end %>
               </div>
             </div>
             <div class="col-4">
-            <%= f.label :diabetico, class: 'texto-checkbox' , :value => 'diabetico/a' do |label| %>
+            <%= f.label :diabetico, class: 'texto-checkbox' do |label| %>
             <%= f.check_box :diabetico %>
               Diabetico/a
             <% end %>
 
-            <%= f.label :doe_cardio, class: 'texto-checkbox' ,:value => 'doencas cardiovasculares' do |label| %>
+            <%= f.label :doe_cardio, class: 'texto-checkbox' do |label| %>
             <%= f.check_box :doe_cardio %>
               Doenças Cardiovasculares
             <% end %>
 
-            <%= f.label :hipertensao, class: 'texto-checkbox' ,:value => 'hipertensao' do |label| %>
+            <%= f.label :hipertensao, class: 'texto-checkbox' do |label| %>
             <%= f.check_box :hipertensao %>
               Hipertensão
             <% end %>
 
-            <%= f.label :fumante, class: 'texto-checkbox' ,:value => 'fumante' do |label| %>
+            <%= f.label :fumante, class: 'texto-checkbox' do |label| %>
             <%= f.check_box :fumante %>
               Fumante
             <% end %>
             </div>
             <div class="col-4">
-            <%= f.label :gestante, class: 'texto-checkbox' ,:value => 'gestante' do |label| %>
+            <%= f.label :gestante, class: 'texto-checkbox' do |label| %>
             <%= f.check_box :gestante %>
               Gestante
             <% end %>
 
-            <%= f.label :obesidade, class: 'texto-checkbox' ,:value => 'obesidade grave' do |label| %>
+            <%= f.label :obesidade, class: 'texto-checkbox' do |label| %>
             <%= f.check_box :obesidade %>
               Obesidade Grave
             <% end %>
@@ -189,19 +189,19 @@
 
       <div class="largura-entre-campos" align="center">
         <%= f.label 'Possui criança na sua residencia?', class:'texto-label'%><br><br>
+        <%= f.radio_button :possui_crianca, true %>
+        <%= f.label :possui_crianca, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0" %>
+        <%= f.radio_button :possui_crianca, false %>
+        <%= f.label :possui_crianca, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0" %>
 
-        <%= f.radio_button :possui_crianca, 'Sim'%>
-        <%= f.label :possui_crianca, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0", :value => true %>
-        <%= f.radio_button :possui_crianca, 'Nao' %>
-        <%= f.label :possui_crianca, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0", :value => false %>
       </div>
 
       <div class="largura-entre-campos" align="center">
         <%= f.label 'Possui alguém do grupo de risco na sua residencia?', class:'texto-label'%><br><br>
-        <%= f.radio_button :possui_risco, 'Sim' %>
-        <%= f.label :possui_risco, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0", :value => true %>
-        <%= f.radio_button :possui_risco, 'Nao' %>
-        <%= f.label :possui_risco, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0", :value => false %>
+        <%= f.radio_button :possui_risco, true %>
+        <%= f.label :possui_risco, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0"%>
+        <%= f.radio_button :possui_risco, false %>
+        <%= f.label :possui_risco, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0" %>
       </div>
 
       <div align="center">

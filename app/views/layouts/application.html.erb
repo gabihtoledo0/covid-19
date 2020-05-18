@@ -71,11 +71,15 @@
 
       <% if user_signed_in? %>
       <%= link_to "Sair", destroy_user_session_path, method: :delete%>
+      <%= link_to 'Editar perfil', edit_user_registration_path%> |
       <% end %>
     </p>
   </nav>
+<%= yield %>
 
-  <%= yield %>
+  <script>
+    $('#errors-modal').modal('show');
+  </script>
 </body>
 
 </html>
