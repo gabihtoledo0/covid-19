@@ -1,43 +1,574 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- <% resource_name.to_s.humanize %> -->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <!-- <div class="modal fade bd-example-modal-sm" id="myModal7" tabindex="-1" role="dialog"
+  aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="<%= image_url('alerta.png') %>" width="30" height="30" class="d-inline-block align-top displayed"
+          alt="logo os incriveis" style="margin-left: 10px;">
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <h5 class="modal-title titulo-modal" id="exampleModalLabel" style="margin-right: 15px;"> Eita! </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja realmente voltar para a página do produto e não salvar as alterações?
+        <br>
+        <br>
+        <a class="btn botao" id="cad_empresa" href="/ideas">Voltar</a>
+        <br>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    </div>
   </div>
+</div> -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+<!-- <div class="modal fade bd-example-modal-sm" id="delete-account-modal" tabindex="-1" role="dialog"
+  aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="<%= image_url('alerta.png') %>" width="30" height="30" class="d-inline-block align-top displayed"
+          alt="logo os incriveis" style="margin-left: 10px;">
+        <h5 class="modal-title titulo-modal" id="exampleModalLabel" style="margin-right: 15px;"> Cuidadooo! </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja apagar sua conta?
+        <br>
+        <br>
+        <div>
+          <%= button_to "SIM", registration_path(resource_name), method: :delete, :class => "cancelar" %>
+          <button data-dismiss="modal" class="cancelar">NÃO</button>
+        </div>
+      </div>
+    </div>
   </div>
+</div> -->
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+<!-- Modal para o botão atualizar -->
+
+  <!-- <div class="modal fade bd-example-modal-sm" id="modalAtualizar" tabindex="-1" role="dialog"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img src="<%= image_url('alerta.png') %>" width="30" height="30" class="d-inline-block align-top displayed"
+            alt="logo os incriveis" style="margin-left: 10px;">
+          <h5 class="modal-title titulo-modal" id="exampleModalLabel" style="margin-right: 15px;"> Eita! </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Tem certeza que deseja atualizar sua conta?
+          <br>
+          
+          <br>
+          <div>
+            <button id="btnAtualizar2" class="cancelar">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <section class="fundo-externo">
+
+    <div style="width: 100%; height: 50px;">
+
+    </div>
+    <div align="right" style="height: 10px;">
+      <img src="<%= image_url('medico.png') %>" class="img-cadastro" alt="rapaz-mascara">
+    </div>
+
+    <div class="container-cadastro container-md">
+      <h1 class="titulo-h2" style="margin-top: 0;">Altere sua cadastro</h1>
+      <legend class="">Dados Pessoais</legend>
+
+      <div class="largura-entre-campos row" style="margin-top: 50px;">
+        <div class="col-4" align="right">
+          <%= f.label :Nome, class: 'texto-label' %>
+        </div>
+        <div class="col">
+          <%= f.text_field :name, id: 'user_name' ,autofocus: true, :style => "text-transform: capitalize;", :class => "borda-caixa-texto caixa-de-texto", :maxlength=> "20", :autocomplete => "off", required: true %>
+        </div>
+      </div>
+
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+          <%= f.label :Sobrenome, class: 'texto-label' %>
+        </div>
+        <div class="col" align="left">
+          <%= f.text_field :last_name, id: 'user_last_name', autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :maxlength=> "50", :autocomplete => "off", required: true %>
+        </div>
+      </div>
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+          <%= f.label :Idade, class: 'texto-label' %>
+        </div>
+        <div class="col">
+        <%= f.text_field :idadee, id: 'idade', :pattern =>"[0-9]+$", autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true, :maxlength=> "3" %>
+        </div>
+      </div>
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+          <%= f.label :CEP, class: 'texto-label' %>
+        </div>
+        <div class="col" data-placement="right" data-trigger="manual" data-toggle="popover" data-content="O  CEP não é válido" id="text-cep">
+        <%= f.text_field :cep, :class => "borda-caixa-texto caixa-de-texto", :placeholder => "00000-000", :autocomplete => "off", required: true %>
+      </div>
+      </div>
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+          <%= f.label :Estado, class: 'texto-label' %>
+        </div>
+        <div class="col">
+        <%= select(:user, :estado, states) %>
+        </div>
+      </div>
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+          <%= f.label :Cidade, class: 'texto-label' %>
+        </div>
+        <div class="col">
+          <%= f.text_field :cidade, autofocus: true , readonly: true, :class => "borda-caixa-texto desativado", :autocomplete => "off", required: true %>
+
+        </div>
+      </div>
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+          <%= f.label :Bairro, class: 'texto-label' %>
+        </div>
+        <div class="col">
+        <%= f.text_field :bairro, autofocus: true, readonly: true, :class => "borda-caixa-texto desativado", :autocomplete => "off", required: true %>
+        </div>
+      </div>
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+          <%= f.label :Rua, class: 'texto-label' %>
+        </div>
+        <div class="col">
+        <%= f.text_field :rua, autofocus: true, readonly: true, :class => "borda-caixa-texto desativado", :placeholder => "Logradouro/Avenida/Alameda", :autocomplete => "off", required: true%>
+        </div>
+      </div>
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+        <%= f.label :Email, class: 'texto-label' %>
+        </div>
+        <div style="padding: 0;" class="col" data-placement="right" data-trigger="manual" data-toggle="popover"
+        data-content="O Email não é válido" id="text-email">
+          <div class="col" data-placement="right" data-trigger="manual" data-toggle="popover"
+            data-content="Este Email já consta em nosso banco de dados, Tente outro!" id="exist-email">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
+          </div>
+      </div>
+    </div>
+    
+    <div class="largura-entre-campos row">
+      <div class="col-4" align="right">
+      <%= f.label :current_password, "Senha Antiga", class: 'texto-label' %><br />
+      </div>
+      <div class="col" data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senhas não conferem" id ="text-senhaconfatual">
+        <%= f.password_field :current_password, autocomplete: "new-password", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
+      </div>
+    </div> 
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+        <%= f.label :password, "Nova Senha", class: 'texto-label' %>
+        </div>
+        <div class="col" data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senha inválida" id ="text-senha">
+          <%= f.password_field :password, autocomplete: "new-password", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
+          <small id="senhaHelp" class="form-text text-muted">A senha deve conter 8 Caracteres: Letra Maiúscula e
+          </br> Minúscula,
+          Caracter especial e Número</small>
+        </div>
+      </div>
+
+      <div class="largura-entre-campos row">
+        <div class="col-4" align="right">
+        <%= f.label :password_confirmation, "Confirme sua nova senha", class: 'texto-label' %><br />
+        </div>
+        <div class="col" data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senhas não conferem" id ="text-senhaconf">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
+        </div>
+      </div>
+
+
+      <div class="largura-entre-campos">
+        <%= f.label 'Marque as opções que você se encaixa', class: 'texto-label', :style => "margin-left: 130px" %><br><br>
+          <div class="row">
+            <div class="col-4">
+              <div class="row" style="padding: 0 0 0 30px;">
+              <%= f.label :nenhuma, class: 'texto-checkbox' , :value => 'nenhuma' do |label| %>
+              <%= f.check_box :nenhuma%>
+                Nenhuma
+              <% end %>
+              </div>
+              <div class="row" style="padding: 0 0 0 30px;">
+                <%= f.label :idoso, class: 'texto-checkbox' ,:value => 'idoso/a' do |label| %>
+                <%= f.check_box :idoso %>
+                  Idoso/a
+                <% end %>
+              </div>
+              <div class="row" style="padding: 0 0 0 30px;">
+                <%= f.label :asma,class: 'texto-checkbox' , :value => 'asma' do |label| %>
+                <%= f.check_box :asma %>
+                  Asma
+                <% end %>
+              </div>
+              <div class="row" style="padding: 0 0 0 30px;">
+                <%= f.label :cancer, class: 'texto-checkbox' ,:value => 'cancer' do |label| %>
+                <%= f.check_box :cancer %>
+                  Câncer
+                <% end %>
+              </div>
+            </div>
+            <div class="col-4">
+            <%= f.label :diabetico, class: 'texto-checkbox' , :value => 'diabetico/a' do |label| %>
+            <%= f.check_box :diabetico %>
+              Diabetico/a
+            <% end %>
+
+            <%= f.label :doe_cardio, class: 'texto-checkbox' ,:value => 'doencas cardiovasculares' do |label| %>
+            <%= f.check_box :doe_cardio %>
+              Doenças Cardiovasculares
+            <% end %>
+
+            <%= f.label :hipertensao, class: 'texto-checkbox' ,:value => 'hipertensao' do |label| %>
+            <%= f.check_box :hipertensao %>
+              Hipertensão
+            <% end %>
+
+            <%= f.label :fumante, class: 'texto-checkbox' ,:value => 'fumante' do |label| %>
+            <%= f.check_box :fumante %>
+              Fumante
+            <% end %>
+            </div>
+            <div class="col-4">
+            <%= f.label :gestante, class: 'texto-checkbox' ,:value => 'gestante' do |label| %>
+            <%= f.check_box :gestante %>
+              Gestante
+            <% end %>
+
+            <%= f.label :obesidade, class: 'texto-checkbox' ,:value => 'obesidade grave' do |label| %>
+            <%= f.check_box :obesidade %>
+              Obesidade Grave
+            <% end %>
+            </div>
+        </div>
+      </div>
+
+      <div class="largura-entre-campos" align="center">
+        <%= f.label 'Possui criança na sua residencia?', class:'texto-label'%><br><br>
+        <%= f.radio_button :possui_crianca, 'Sim'%>
+        <%= f.label :possui_crianca, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0", :value => true %>
+        <%= f.radio_button :possui_crianca, 'Nao' %>
+        <%= f.label :possui_crianca, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0", :value => false %>
+      </div>
+
+      <div class="largura-entre-campos" align="center">
+        <%= f.label 'Possui alguém do grupo de risco na sua residencia?', class:'texto-label'%><br><br>
+        <%= f.radio_button :possui_risco, 'Sim' %>
+        <%= f.label :possui_risco, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0", :value => true %>
+        <%= f.radio_button :possui_risco, 'Nao' %>
+        <%= f.label :possui_risco, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0", :value => false %>
+      </div>
+
+      <div align="center">
+        <%= f.submit "ATUALIZAR", :class => "botao-finalizar"%>
+        <small id="smallatualizar" class="form-text text-muted">*Botão desbloqueado ao preenche <br>o campo 'senha
+          atual'.</small>
+      </div>
+
+      <div align="center">
+      <%= link_to "Voltar", new_session_path(resource_name), class: "link" %>
+      </div>
+    </div>
+    <div style="width: 100%; height: 50px;">
+    </div>
+  </section>
+
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Quer cancelar sua conta?</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Voltar", :back %>
+
+
+<script type="text/javascript">
+
+  $('.field_with_errors').find('input').attr('style', 'border: 1px solid red');
+  $('.field_with_errors').attr('style', 'background-color: transparent;')
+
+  // Regex formatação senha.
+  var password = new RegExp('(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*');
+  // Regex formatação email.
+  // var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@youse.com.br$');
+
+  $(document).ready(function () {
+    $(this).scrollTop(0);
+
+// -------------------------------------------------------------------
+
+    $("#user_email").keyup(function () {
+      // Atribuindo o valor do email a uma variável.
+      var VAL = this.value;
+
+      // Se já houver algo digitado.
+      if($(this).val().length > 0){
+
+        // Está no formato adequado.
+        if (email.test(VAL)) {
+
+          // Validação no banco de dados.
+
+            // Caso este email já exista no banco de dados.
+            if(data.email_exists){
+              $('#text-email').popover('hide')
+              $('#exist-email').popover('show')
+              $("#user_email").css("border-color", "red");
+            }
+
+            //Caso este email ainda não exista no banco de dados.
+             else{
+              $('#exist-email').popover('hide')
+              $('#text-email').popover('hide')
+              $("#user_email").css("border-color", "green");
+
+            }
+        }
+      }
+
+      // Se não houver nada digitado.
+      else{
+        $(this).css("border-color", "#ff8d02");
+        $('#text-email').popover('hide')
+        $('#exist-email').popover('hide')
+      }
+    });
+
+// ----------------------------------------------------------------------
+      $("#user_cep").keyup(function () {
+        if ($(this).val().length == 9) {
+          $.ajax({
+            url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
+            dataType: 'json',
+            success: function (resposta) {
+              $("#user_rua").val(resposta.logradouro);
+              $("#complemento").val(resposta.complemento);
+              $("#user_bairro").val(resposta.bairro);
+              $("#user_cidade").val(resposta.localidade);
+              $("#user_estado").val(resposta.uf);
+              if (resposta.erro !== true ){
+                $("#user_cep").css("border-color", "green");
+                $('#text-cep').popover('hide')
+              }
+              else {
+                $("#user_cep").css("border-color", "red");
+                $("#text-cep").popover('show');
+              }
+            }
+          });
+        }
+        else if ($(this).val().length > 0){
+          $("#user_cep").css("border-color", "#191970");
+          $("#user_rua").val("");
+          $("#complemento").val("");
+          $("#user_bairro").val("");
+          $("#user_cidade").val("");
+          $("#user_estado").val("");
+          $("#text-cep").popover('show');
+        }
+        else{
+              $("#user_cep").css("border-color", "#ff8d02");
+              $("#user_rua").val("");
+              $("#complemento").val("");
+              $("#user_bairro").val("");
+              $("#user_cidade").val("");
+              $("#user_estado").val("");
+              $("#text-cep").popover('hide');
+        }
+      });
+      $('#user_cep').mask('00000-000');
+// ------------------------------------------------------------------
+
+      $("#user_name").keyup(function () {
+        if ($(this).val().length > 0){
+          $(this).css("border-color", "green");
+      }
+        // Se este campo não for preenchido.
+        else {
+          $(this).css("border-color", "#ff8d02");
+       }
+      });
+
+      jQuery('#user_name').keyup(function () {
+        this.value = this.value.replace(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/g,'');
+      });
+
+// ---------------------------------------------------------------------------------
+      $("#user_last_name").keyup(function () {
+
+        if ($(this).val().length > 0){
+          $("#user_last_name").css("border-color", "green");
+          // Se o campo senha estiver com a formatação correta.
+        }
+        // Se este campo não for preenchido.
+        else {
+          $("#user_last_name").css("border-color", "#ff8d02");
+       }
+      });
+
+      jQuery('#user_last_name').keyup(function () {
+        this.value = this.value.replace(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/g,'');
+      });
+// ------------------------------------------------------------------------------------------
+
+      $("#user_password").keyup(function () {
+        var VAL = this.value;
+  
+        // Se o campo senha começar a ser preenchido.
+        if($(this).val().length > 0){
+  
+          // Se o campo senha estiver com a formatação correta.
+          if (password.test(VAL)) {
+            $(this).css("border-color", "green");
+            $('#text-senha').popover('hide')
+  
+          }
+  
+          // Se o campo senha estiver com a formatação incorreta.
+          else {
+            $(this).css("border-color", "red");
+            $('#text-senha').popover('show')
+          }
+        }
+  
+        // Se o campo senha estiver vazio.
+        else {
+          $(this).css("border-color", "#ff8d02");
+          $('#text-senha').popover('hide');
+  
+          // Se o camppo confirmação for vazio.
+          if ($("#user_password_confirmation").val().length == 0){
+            $("#user_password_confirmation").css("border-color", "#ff8d02");
+            $('#text-senhaconf').popover('hide');
+          }
+        }
+
+        // Se o campo confirmação de senha tiver algo.
+        if ($("#user_password_confirmation").val().length > 0){
+  
+          // Se houver divergência de valores.
+          if ($(this).val() !== $("#user_password_confirmation").val()) {
+            $("#user_password_confirmation").css("border-color", "red");
+              $('#text-senhaconf').popover('show')
+          }
+  
+          // Se não houver divergência de valroes.
+          else {
+            $("#user_password_confirmation").css("border-color", "green");
+            $('#text-senhaconf').popover('hide')
+          }
+        }
+      });
+// ---------------------------------------------------------------------------- 
+
+      $("#user_password_confirmation").keyup(function() {
+
+        // Se tiver algo no campo de confirmação.
+        if ($(this).val().length > 0){
+
+          // Se houver divergência nos campos.
+          if ($(this).val() !== $("#user_password").val() ) {
+            $(this).css("border-color", "red");
+            $('#text-senhaconf').popover('show')
+          }
+
+          // Se forem iguais.
+          else {
+            $(this).css("border-color", "green");
+            $('#text-senhaconf').popover('hide');
+          }
+        }
+
+        // Se não tiver algo no campo confirmação.
+        else{
+          $(this).css("border-color", "#ff8d02");
+          $('#text-senhaconf').popover('hide');
+         }
+       });
+
+  
+    // -------------------------------- ------- outro 
+
+
+    // $("#botao_redes").click(function (event) {
+    //   event.preventDefault();
+    //   $("#modalAtualizar").modal({ show: true});
+    // });
+
+    // // Exibição do modal ao clicar no link para voltar.
+    // $("#linkvoltar").click(function (e) {
+    //   $('#myModal7').modal('show')
+    // });
+
+    // $("#btnAtualizar2").click(function () {
+    //   document.getElementById("edit_user").submit();
+    // });
+
+
+    // $("#123").keyup(function () {
+
+    //   // Se tiver algo no campo de confirmação.
+    //   if ($(this).val().length > 0) {
+
+    //     //Se tiver no formato certo.
+    //     if (password.test($("#123").val())) {
+    //       $(this).css("border-color", "green");
+    //       $('#text-senhaconf').popover('hide')
+    //       document.getElementById("botao_redes").disabled = false;
+    //       $('#smallatualizar').hide();
+    //     }
+    //     else {
+    //       $(this).css("border-color", "red");
+    //       $('#text-senhaconf').popover('show')
+    //       document.getElementById("botao_redes").disabled = true;
+    //       $('.confirmar').attr('style', 'height: 265px;')
+    //       $('#smallatualizar').show();
+    //     }
+    //   }
+
+    //   //Se o campo tiver vazio.
+    //   else {
+    //     $(this).css("border-color", "rgb(132, 46, 176)");
+    //     $('#text-senhaconf').popover('hide')
+    //     document.getElementById("botao_redes").disabled = true;
+    //     $('.confirmar').attr('style', 'height: 265px;')
+    //     $('#smallatualizar').show();
+    //   }
+    // });
+
+  });
+
+  </script>

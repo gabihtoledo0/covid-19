@@ -20,18 +20,9 @@ class IncriveisValidator < ActiveModel::Validator
             record.errors[:last_name] << "deve conter apenas letras e espaços."
         end
 
-        if record.idadee < 10 && record.idadee > 100
-            record.errors[:idadee] << "Idade inválida"
+        unless record.idade > 10 && record.idade < 100
+            record.errors[:idade] << "Idade inválida"
         end
     end
 end
 
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-  validates_with IncriveisValidator
-
-end

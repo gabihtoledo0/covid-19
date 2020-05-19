@@ -1,0 +1,113 @@
+.largura-entre-campos {
+  margin-bottom: 30px;
+}
+
+.borda-caixa-texto {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #ff8d02;
+  border-radius: 5px;
+  }
+
+  .caixa-de-texto {
+    padding: 0 0 2px 5px;
+    width: 300px;
+    color: #191970;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
+
+  .desativado {
+    padding: 0 0 2px 5px;
+    width: 300px;
+    color: #808080;
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
+
+  .fundo-externo {
+    background-image: url(/assets/fundo-escuro-pequeno.jpeg);
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  .container-cadastro {
+    background-color:#f8f9fa;
+    width: 600px;
+    height: 100%;
+    margin: 0 0 0 50px;
+    padding: 30px;
+  }
+
+  .titulo-h2 {
+    font-family: 'Oswald-Bold', sans-serif;
+    font-size: 40px;
+    color: #ff8d02;
+    margin-bottom: 40px;
+  }
+
+  .texto-label {
+    font-family: 'Roboto', sans-serif;
+    color: #191970;
+    font-size: 16px;
+  }
+
+  legend {
+    font-family: 'Roboto-Bold', sans-serif;
+    color: #191970;
+  }
+
+  .texto-checkbox {
+    color: #ed4f61;
+    font-size: 15px;
+    font-family: 'Roboto-Bold', sans-serif;
+  }
+
+  .sim-radio {
+    color: green;
+    font-size: 15px;
+    font-family: 'Roboto-Bold', sans-serif;
+  }
+
+  .nao-radio {
+
+    color: #ed4f61;
+    font-size: 15px;
+    font-family: 'Roboto-Bold', sans-serif;
+  }
+
+  .botao-finalizar {
+    background-color: #ff8d02;
+    background-image: url(/assets/favicon.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    width: 160px;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Oswald-Bold', sans-serif;
+    color: #191970;
+    outline: 0;
+
+  }
+
+  .botao-finalizar:hover {
+    background-color: #ff9d25;
+  }
+
+  .img-cadastro {
+    width: 700px;
+    height: 850px;
+    position: relative;
+  }
+
+  .link {
+    font-family: 'Roboto-Regular', sans-serif;
+    color: #191970;
+    text-align: center;
+    text-decoration: underline;
+  }
