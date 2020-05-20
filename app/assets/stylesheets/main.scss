@@ -10,6 +10,20 @@
   text-align: center;
 }
 
+.titulo-modal{
+  color: #363636;
+}
+
+.modal-titulo{
+  color: #363636;
+  font-family: futura;
+
+}
+.modal{
+  color:  rgb(132, 46, 176);
+  font-family: futura;
+}
+
 #error_explanation {
   width: 450px;
   border: 1px solid #e00000;
@@ -305,7 +319,7 @@ input[type="submit"]:hover{
 }
 .icone{
   position: absolute; 
-  left: 690px;
+  left: 630px;
   top: 115px;
   z-index: 2;
 }
