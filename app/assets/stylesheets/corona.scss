@@ -323,23 +323,6 @@
             
               .align-self-xl-stretch {
                 align-self: stretch !important; } }
-                @media (min-width: 576px) {
-                  .modal-dialog {
-                    max-width: 500px;
-                    margin: 1.75rem auto; }
-                
-                  .modal-dialog-scrollable {
-                    max-height: calc(100% - 3.5rem); }
-                    .modal-dialog-scrollable .modal-content {
-                      max-height: calc(100vh - 3.5rem); }
-                
-                  .modal-dialog-centered {
-                    min-height: calc(100% - 3.5rem); }
-                    .modal-dialog-centered::before {
-                      height: calc(100vh - 3.5rem); }
-                
-                  .modal-sm {
-                    max-width: 300px; } }
                     @media (max-width: 419.98px) {
                       .table-responsive-mb {
                         display: block;

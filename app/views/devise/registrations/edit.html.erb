@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="modal fade bd-example-modal-sm" id="myModal7" tabindex="-1" role="dialog"
+  <!-- <div class="modal fade bd-example-modal-sm" id="myModal7" tabindex="-1" role="dialog"
   aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -25,7 +25,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- <div class="modal fade bd-example-modal-sm" id="delete-account-modal" tabindex="-1" role="dialog"
@@ -525,19 +525,19 @@
     // -------------------------------- ------- outro 
 
 
-    $("#botao_redes").click(function (event) {
-      event.preventDefault();
-      $("#modalAtualizar").modal({ show: true});
-    });
+    // $("#botao_redes").click(function (event) {
+    //   event.preventDefault();
+    //   $("#modalAtualizar").modal({ show: true});
+    // });
 
-    // Exibição do modal ao clicar no link para voltar.
-    $("#linkvoltar").click(function (e) {
-      $('#myModal7').modal('show')
-    });
+    // // Exibição do modal ao clicar no link para voltar.
+    // $("#linkvoltar").click(function (e) {
+    //   $('#myModal7').modal('show')
+    // });
 
-    $("#btnAtualizar2").click(function () {
-      document.getElementById("edit_user").submit();
-    });
+    // $("#btnAtualizar2").click(function () {
+    //   document.getElementById("edit_user").submit();
+    // });
 
 
     // $("#123").keyup(function () {

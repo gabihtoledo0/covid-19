@@ -10,18 +10,23 @@
   text-align: center;
 }
 
-.titulo-modal{
-  color: #363636;
-}
-
-.modal-titulo{
-  color: #363636;
-  font-family: futura;
-
-}
 .modal{
   color:  rgb(132, 46, 176);
   font-family: futura;
+  opacity: 1;
+}
+.titulo-modal {
+  font-family: 'Oswald-Bold', sans-serif;
+  font-size: 20px;
+  margin-left: 20px;
+  color: #ff8d02;
+}
+
+.subtitulo-modal {
+  font-family: 'Roboto', sans-serif;
+  color: #191970;
+  font-size: 14px;
+  line-height: 25px;
 }
 
 #error_explanation {
@@ -78,3 +83,4 @@
     border-style: solid;
     border-color:#ff9d25;
   }
+
