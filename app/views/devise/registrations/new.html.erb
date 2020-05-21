@@ -24,7 +24,6 @@
         </div>
       </div>
 
-
       <div class="largura-entre-campos row">
         <div class="col-4" align="right">
           <%= f.label :Sobrenome, class: 'texto-label' %>
@@ -39,7 +38,7 @@
           <%= f.label :Idade, class: 'texto-label' %>
         </div>
         <div class="col">
-        <%= f.text_field :idadee, id: 'idade', :pattern =>"[0-9]+$", autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true, :maxlength=> "3" %>
+        <%= f.text_field :idadee, id: 'idade', autofocus: true, :class => "borda-caixa-texto caixa-de-texto", :autocomplete => "off", required: true, :maxlength=> "3" %>
         </div>
       </div>
 
@@ -345,6 +344,12 @@
 
       jQuery('#user_last_name').keyup(function () {
         this.value = this.value.replace(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/g,'');
+      });
+
+      // -------------------------------------------------
+      
+      jQuery('#idade').keyup(function () {
+        this.value = this.value.replace(/[^0-9]/g,'');
       });
 // ------------------------------------------------------------------------------------------
 

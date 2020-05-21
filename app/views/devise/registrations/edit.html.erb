@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <!-- <div class="modal fade bd-example-modal-sm" id="myModal7" tabindex="-1" role="dialog"
+  <div class="modal fade bd-example-modal-sm" id="myModal7" tabindex="-1" role="dialog"
   aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -20,13 +20,12 @@
         Deseja realmente voltar para a página do produto e não salvar as alterações?
         <br>
         <br>
-        <a class="btn botao" id="cad_empresa" href="/ideas">Voltar</a>
+        <a class="botão-finalizar" id="cad_empresa" href="/">Voltar</a>
         <br>
       </div>
-
     </div>
   </div>
-</div> -->
+</div>
 
 
 <!-- <div class="modal fade bd-example-modal-sm" id="delete-account-modal" tabindex="-1" role="dialog"
@@ -87,7 +86,7 @@
 
     </div>
     <div align="right" style="height: 10px;">
-      <img src="<%= image_url('medico.png') %>" class="img-cadastro" alt="rapaz-mascara">
+      <img src="<%= image_url('moco.png') %>" class="img-cadastro" alt="moco-espirrando">
     </div>
 
     <div class="container-cadastro container-md">
@@ -278,41 +277,44 @@
 
       <div class="largura-entre-campos" align="center">
         <%= f.label 'Possui criança na sua residencia?', class:'texto-label'%><br><br>
-        <%= f.radio_button :possui_crianca, 'Sim'%>
-        <%= f.label :possui_crianca, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0", :value => true %>
-        <%= f.radio_button :possui_crianca, 'Nao' %>
-        <%= f.label :possui_crianca, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0", :value => false %>
+        <%= f.radio_button :possui_crianca, true %>
+        <%= f.label :possui_crianca, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0" %>
+        <%= f.radio_button :possui_crianca, false %>
+        <%= f.label :possui_crianca, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0" %>
+
       </div>
 
       <div class="largura-entre-campos" align="center">
         <%= f.label 'Possui alguém do grupo de risco na sua residencia?', class:'texto-label'%><br><br>
-        <%= f.radio_button :possui_risco, 'Sim' %>
-        <%= f.label :possui_risco, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0", :value => true %>
-        <%= f.radio_button :possui_risco, 'Nao' %>
-        <%= f.label :possui_risco, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0", :value => false %>
+        <%= f.radio_button :possui_risco, true %>
+        <%= f.label :possui_risco, 'Sim', class: 'sim-radio', :style => "padding: 0 20px 0 0"%>
+        <%= f.radio_button :possui_risco, false %>
+        <%= f.label :possui_risco, 'Não', class: 'nao-radio', :style => "padding: 0 20px 0 0" %>
       </div>
 
       <div align="center">
-        <%= f.submit "ATUALIZAR", :class => "botao-finalizar"%>
+        <%= f.submit "ATUALIZAR", :class => "botao-finalizar" , id: "botao_redes"%>
         <small id="smallatualizar" class="form-text text-muted">*Botão desbloqueado ao preenche <br>o campo 'senha
-          atual'.</small>
+          atual'.</small><br>
       </div>
 
       <div align="center">
-      <%= link_to "Voltar", new_session_path(resource_name), class: "link" %>
+        <h3 class="titulo-h3">Quer cancelar sua conta?</h3>
+        <p><%= button_to "CANCELAR MINHA CONTA", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete, class: "botao-cancelar"%></p>
       </div>
+
+      <div align="center">
+        <%= link_to "Voltar", new_session_path(resource_name), class: "link", id: "linkvoltar" %>
+        </div>
     </div>
+
     <div style="width: 100%; height: 50px;">
     </div>
   </section>
 
 <% end %>
 
-<h3>Quer cancelar sua conta?</h3>
 
-<p><%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete %></p>
-
-<%= link_to "Voltar", :back %>
 
 
 <script type="text/javascript">
@@ -523,19 +525,19 @@
     // -------------------------------- ------- outro 
 
 
-    // $("#botao_redes").click(function (event) {
-    //   event.preventDefault();
-    //   $("#modalAtualizar").modal({ show: true});
-    // });
+    $("#botao_redes").click(function (event) {
+      event.preventDefault();
+      $("#modalAtualizar").modal({ show: true});
+    });
 
-    // // Exibição do modal ao clicar no link para voltar.
-    // $("#linkvoltar").click(function (e) {
-    //   $('#myModal7').modal('show')
-    // });
+    // Exibição do modal ao clicar no link para voltar.
+    $("#linkvoltar").click(function (e) {
+      $('#myModal7').modal('show')
+    });
 
-    // $("#btnAtualizar2").click(function () {
-    //   document.getElementById("edit_user").submit();
-    // });
+    $("#btnAtualizar2").click(function () {
+      document.getElementById("edit_user").submit();
+    });
 
 
     // $("#123").keyup(function () {

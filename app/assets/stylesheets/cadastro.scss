@@ -50,6 +50,13 @@
     margin-bottom: 40px;
   }
 
+  .titulo-h3 {
+    font-family: 'Oswald-Bold', sans-serif;
+    font-size: 20px;
+    color: #ff8d02;
+  }
+
+
   .texto-label {
     font-family: 'Roboto', sans-serif;
     color: #191970;
@@ -92,6 +99,19 @@
     font-family: 'Oswald-Bold', sans-serif;
     color: #191970;
     outline: 0;
+  }
+  .botao-cancelar {
+    background-color: #ff8d02;
+    background-image: url(/assets/favicon.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    font-family: 'Oswald-Bold', sans-serif;
+    color: #191970;
+    outline: 0;
 
   }
 
@@ -104,6 +124,28 @@
     height: 850px;
     position: relative;
   }
+  @media (min-width: 420px) {
+    .img-cadastro {
+      width: 300px;
+      height: 380px;} }
+  @media (min-width: 576px) {
+    .img-cadastro {
+      width: 300px;
+      height: 380px;}  }
+  @media (min-width: 768px) {
+    .img-cadastro {
+      width: 300px;
+      height: 380px;} }
+      @media (min-width: 992px) {
+        .img-cadastro{
+        width: 700px;
+        height: 850px;
+        position: relative;}}
+      @media (min-width: 1200px) {
+        .img-cadastro {
+        width: 700px;
+        height: 850px;
+        position: relative; }}
 
   .link {
     font-family: 'Roboto-Regular', sans-serif;
