@@ -58,4 +58,6 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'bootstrap', '~> 4.4.1'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'carrierwave'
-gem 'brazilian_documents', '~> 0.1.4'
+gem 'rails-i18n'
+gem 'brazilian-rails'
+

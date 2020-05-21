@@ -1,11 +1,8 @@
-<!-- <% resource_name.to_s.humanize %> -->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <!-- <div class="modal fade bd-example-modal-sm" id="myModal7" tabindex="-1" role="dialog"
-  aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
-  <div class="modal-dialog modal-sm">
+  <!-- <div class="modal" tabindex="-1" role="dialog" id="myModal7">
+  <div class="modal-dialog modal-sm" style="top: 90px">
     <div class="modal-content">
       <div class="modal-header">
         <img src="<%= image_url('alerta.png') %>" width="30" height="30" class="d-inline-block align-top displayed"
@@ -26,11 +23,8 @@
     </div>
   </div>
 </div> -->
-
-
-<!-- <div class="modal fade bd-example-modal-sm" id="delete-account-modal" tabindex="-1" role="dialog"
-  aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
-  <div class="modal-dialog modal-sm">
+<!-- <div class="modal" tabindex="-1" role="dialog" id="delete-account-modal">
+  <div class="modal-dialog modal-sm" style="top: 90px">
     <div class="modal-content">
       <div class="modal-header">
         <img src="<%= image_url('alerta.png') %>" width="30" height="30" class="d-inline-block align-top displayed"
@@ -45,19 +39,16 @@
         <br>
         <br>
         <div>
-          <%= button_to "SIM", registration_path(resource_name), method: :delete, :class => "cancelar" %>
-          <button data-dismiss="modal" class="cancelar">NÃO</button>
+          <%= button_to "SIM", registration_path(resource_name), method: :delete, :class => "botao-finalizar" %>
+          <button data-dismiss="modal" class="botao-finalizar">NÃO</button>
         </div>
       </div>
     </div>
   </div>
 </div> -->
-
-<!-- Modal para o botão atualizar -->
-
-  <!-- <div class="modal fade bd-example-modal-sm" id="modalAtualizar" tabindex="-1" role="dialog"
-    aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
-    <div class="modal-dialog modal-sm">
+<!-- Modal para o botão atualizar
+  <div class="modal" tabindex="-1" role="dialog" id="modalAtualizar">
+    <div class="modal-dialog modal-sm" style="top: 90px">
       <div class="modal-content">
         <div class="modal-header">
           <img src="<%= image_url('alerta.png') %>" width="30" height="30" class="d-inline-block align-top displayed"
@@ -70,15 +61,14 @@
         <div class="modal-body">
           Tem certeza que deseja atualizar sua conta?
           <br>
-          
           <br>
           <div>
-            <button id="btnAtualizar2" class="cancelar">Confirmar</button>
+            <%= f.submit "CONFIRMAR", id: "btnAtualizar2", :class => "botao-finalizar"%>
           </div>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>  -->
 
   <section class="fundo-externo">
 
@@ -185,7 +175,7 @@
       <%= f.label :current_password, "Senha Antiga", class: 'texto-label' %><br />
       </div>
       <div class="col" data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senhas não conferem" id ="text-senhaconfatual">
-        <%= f.password_field :current_password, autocomplete: "new-password", required: true, :class => "borda-caixa-texto caixa-de-texto" %>
+        <%= f.password_field :current_password, autocomplete: "new-password", required: true, :class => "borda-caixa-texto caixa-de-texto" , id:"123" %>
       </div>
     </div> 
 
@@ -293,28 +283,24 @@
       </div>
 
       <div align="center">
-        <%= f.submit "ATUALIZAR", :class => "botao-finalizar" , id: "botao_redes"%>
+        <%= f.submit "ATUALIZAR", :class => "botao-finalizar", id: "botao_redes" %>
         <small id="smallatualizar" class="form-text text-muted">*Botão desbloqueado ao preenche <br>o campo 'senha
-          atual'.</small><br>
+          atual'.</small>
       </div>
-
+    <% end %>
       <div align="center">
         <h3 class="titulo-h3">Quer cancelar sua conta?</h3>
-        <p><%= button_to "CANCELAR MINHA CONTA", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete, class: "botao-cancelar"%></p>
+        <%= button_to "CANCELAR MINHA CONTA", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete , class: "botao-cancelar"%>
       </div>
 
       <div align="center">
-        <%= link_to "Voltar", new_session_path(resource_name), class: "link", id: "linkvoltar" %>
+        <%= link_to "Voltar", new_session_path(resource_name), class: "link", id: "linkvoltar"%>
         </div>
     </div>
 
     <div style="width: 100%; height: 50px;">
     </div>
   </section>
-
-<% end %>
-
-
 
 
 <script type="text/javascript">
@@ -326,10 +312,20 @@
   var password = new RegExp('(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*');
   // Regex formatação email.
   // var email = new RegExp('^[a-z0-9](\.?[a-z0-9])+@youse.com.br$');
+  function myFunction() {
+
+// Atribuindo valor de id a uma variável.
+    var x = document.getElementById("123");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
 
   $(document).ready(function () {
     $(this).scrollTop(0);
-
+    var password = new RegExp('(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*');
 // -------------------------------------------------------------------
 
     $("#user_email").keyup(function () {
@@ -525,51 +521,35 @@
     // -------------------------------- ------- outro 
 
 
-    // $("#botao_redes").click(function (event) {
-    //   event.preventDefault();
-    //   $("#modalAtualizar").modal({ show: true});
-    // });
+    document.getElementById("botao_redes").disabled = true;
+    $("#123").keyup(function () {
 
-    // // Exibição do modal ao clicar no link para voltar.
-    // $("#linkvoltar").click(function (e) {
-    //   $('#myModal7').modal('show')
-    // });
+      // Se tiver algo no campo de confirmação.
+      if ($(this).val().length > 0) {
 
-    // $("#btnAtualizar2").click(function () {
-    //   document.getElementById("edit_user").submit();
-    // });
+        //Se tiver no formato certo.
+        if (password.test($("#123").val())) {
+          $(this).css("border-color", "green");
+          $('#text-senhaconfatual').popover('hide')
+          document.getElementById("botao_redes").disabled = false;
+          $('#smallatualizar').hide();
+        }
+        else {
+          $(this).css("border-color", "red");
+          $('#text-senhaconfatual').popover('show')
+          document.getElementById("botao_redes").disabled = true;
+          $('#smallatualizar').show();
+        }
+      }
 
-
-    // $("#123").keyup(function () {
-
-    //   // Se tiver algo no campo de confirmação.
-    //   if ($(this).val().length > 0) {
-
-    //     //Se tiver no formato certo.
-    //     if (password.test($("#123").val())) {
-    //       $(this).css("border-color", "green");
-    //       $('#text-senhaconf').popover('hide')
-    //       document.getElementById("botao_redes").disabled = false;
-    //       $('#smallatualizar').hide();
-    //     }
-    //     else {
-    //       $(this).css("border-color", "red");
-    //       $('#text-senhaconf').popover('show')
-    //       document.getElementById("botao_redes").disabled = true;
-    //       $('.confirmar').attr('style', 'height: 265px;')
-    //       $('#smallatualizar').show();
-    //     }
-    //   }
-
-    //   //Se o campo tiver vazio.
-    //   else {
-    //     $(this).css("border-color", "rgb(132, 46, 176)");
-    //     $('#text-senhaconf').popover('hide')
-    //     document.getElementById("botao_redes").disabled = true;
-    //     $('.confirmar').attr('style', 'height: 265px;')
-    //     $('#smallatualizar').show();
-    //   }
-    // });
+      //Se o campo tiver vazio.
+      else {
+        $(this).css("border-color", "#ff8d02");
+        $('##text-senhaconfatual').popover('hide')
+        document.getElementById("botao_redes").disabled = true;
+        $('#smallatualizar').show();
+      }
+      });
 
   });
 

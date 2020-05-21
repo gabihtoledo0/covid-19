@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'brI18n'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -12,6 +13,8 @@ module Covid19
     config.load_defaults 6.0
     I18n.config.enforce_available_locales = true
     config.i18n.default_locale = :'pt-BR'
+    config.i18n.fallbacks = true
+  config.i18n.fallbacks = [:pt-BR]
     Date::DATE_FORMATS[:default] = "%d/%m/%Y"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

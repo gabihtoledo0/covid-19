@@ -56,10 +56,13 @@
       <% if user_signed_in? %>
       <strong class="op1"> <%= current_user.email %></strong> |
       <% end %>
+      
+      <% if request.fullpath != "/users/edit" &&  user_signed_in? %> 
+      <%= link_to 'Editar perfil', edit_user_registration_path%> |
+      <% end %>
 
       <% if user_signed_in? %>
-      <%= link_to "Sair", destroy_user_session_path, method: :delete%>
-      <%= link_to 'Editar perfil', edit_user_registration_path%> |
+      <%= link_to "Sair", destroy_user_session_path, method: :delete%> |
       <% end %>
     </p>
   </nav>

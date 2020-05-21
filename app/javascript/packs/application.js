@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+// =require brI18n
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
