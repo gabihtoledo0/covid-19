@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'informations/:id', to: 'informations#show'
   get 'corona/index'
   get 'games/new'
   devise_for :users
