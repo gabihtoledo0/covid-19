@@ -1,5 +1,159 @@
-<h1>Informations#show</h1>
-<p>Find me in app/views/informations/show.html.erb</p>
-  <div>
-    Olá <%= @user.name %>
+<section>
+
+
+  <div class="container-menor">
+    <div class="row">
+      <div class="col">
+        <p class="titulo-h2" style="position: relative; top: 60px; left: 60px;">Olá <%= @user.name %>,</p><br>
+        <p class="subtitulo">Viemos aqui te orientar e dar algumas dicas de<br>
+        como se prevenir do novo covid-19.</p>
+      </div>
+      <div align="right" class="col">
+        <img src="<%= image_url('contra.png') %>" class="minha-area" alt="simbolo corona virus">
+      </div>
+    </div>
   </div>
+
+  <!-- <div>
+    O novo coronavírus é parente do vírus causador da SARS (sigla inglesa para síndrome respiratória aguda grave).
+    Pacientes com doenças mais debilitantes têm menor capacidade de frear o vírus, aumentando o risco de ele cair na corrente sanguínea, atingir os pulmões e provocar pneumonia.
+    "Em geral, pessoas com doenças crônicas estão em maior risco por causa do comprometimento da resposta imune. A possibilidade da intensidade da replicação viral, acaba deflagrando uma 
+    lesão pulmonar que vai agravar o quadro do paciente", explica Luciana Costa, diretora adjunta do Instituto de Microbiologia da UFRJ e do Laboratório de Genética e Imunologia das Infecções Virais.
+  </div> -->
+<!-- -------------------------- grupo de risco ------------------ -->
+  <div class="container-maior">
+    <div style="margin: 60px 40px 0 40px;">
+      <div class="row">
+        <div class="col">
+          <p class="titulo-h3">Você está no grupo de risco, sendo mais suscetível a complicações do novo coronavírus.</p>
+          <p class="subtitulo-laranja">Sendo assim, você precisa reforçar alguns cuidados e medidas para combater o vírus:</p>
+      </div>
+      <div class="col" align="center">
+        <img src="<%= image_url('risco.png') %>" class="risco" alt="grupo de risco">
+      </div>
+    </div>
+
+
+      • Higienização frequente das mãos com água e sabonete (durante 30s) ou álcool gel a 70%;
+      • Seguir a “etiqueta respiratória” quando possível:
+        Cobrir a boca e nariz com um lenço de papel quando tossir ou espirrar e descartar o lenço usado no lixo;
+        Caso não tenha disponível lenço descartável, tossir ou espirrar no antebraço e não em suas mãos, que são importantes veículos de contaminação; 
+        Higienizar as mãos com frequência e sempre após tossir ou espirrar;
+        Evitar tocar nos olhos, nariz e boca sem ter higienizado as mãos;
+        Usar máscara cirúrgica se estiver com coriza ou tosse.
+
+      • Restrição de contato social (exceto cuidadores e profissionais de saúde, quando necessário);
+
+      • Evitar aglomerações e viagens;
+
+      • Evitar atividades em grupo;
+
+      • Atenção redobrada aos cuidados com a higiene pessoal (em especial às pessoas com deficiência intelectual e motora com alto grau de dependência)
+
+      É importante ressaltar que a criança com deficiência faz parte do grupo de risco, incluindo:
+
+      Paralisia Cerebral;
+      Microcefalia;
+      Síndrome de Down;
+      Transtorno do Espectro Autista (TEA)
+      Esclerose Lateral Amiotrófica (ELA);
+      Atrofia Muscular Espinha (AME);
+      Esclerose Múltipla;
+      Distrofias Musculares;
+      Demais síndromes;
+      E outras condições semelhantes.
+  </div>
+  </div>
+
+
+  <div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14639.433016428047!2d-46.3145073!3d-23.4655769!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1590104375065!5m2!1spt-BR!2sbr"
+      width="700"
+      height="400"
+      frameborder="0"
+      style="border: 0;"
+      allowfullscreen=""
+      aria-hidden="false"
+      tabindex="0"
+    ></iframe>
+  </div>
+</div>
+</section>
+
+<style>
+.minha-area {
+  position: relative;
+  right: 100px;
+  top: 120px;
+  width: 600px;
+  position: relative;
+}
+.risco {
+  height: 400px;
+}
+
+
+.imagem {
+  background-image: url(/assets/shape-b.png);
+  background-color: #9DBFFF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.container-menor {
+  height: 300px;
+  background-image: url(/assets/azul.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0 50px 50px;
+  height: 400px;
+}
+
+.container-maior {
+  height: 900px;
+}
+
+.subtitulo {
+    font-family: 'Raleway', sans-serif;
+    color: #191970;
+    font-size: 25px;
+    position: relative;
+    left: 60px;
+    top: 20px;
+  }
+
+  .subtitulo-laranja {
+    font-family: 'Raleway', sans-serif;
+    color: #ff8d02;
+    font-size: 25px;
+    position: relative;
+  }
+
+
+.col {
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+
+.titulo-h2 {
+    font-family: 'Oswald-Bold', sans-serif;
+    font-size: 50px;
+    color: #191970;
+    margin-bottom: 40px;
+}
+
+.titulo-h3 {
+    font-family: 'Oswald-Bold', sans-serif;
+    font-size: 40px;
+    color: #ff8d02;
+    margin-bottom: 40px;
+}
+
+</style>
+
