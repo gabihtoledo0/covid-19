@@ -1,16 +1,213 @@
-<h2>Forgot your password?</h2>
+<!DOCTYPE html>
+<html>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<head>
+  <title>Covid-19</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=320px">
+  <meta name="viewport" content="height=device-height">
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="W46DH6sT6sL1iYMxpG8LzVcwwpnUYW1gI2c9lEidoD3piQE+TcOYGbvrWfCaNCYTxEdJ8JxPFhTG92Itk3+0QA==" />
+  <style type="text/css">
+    /* CSS reset */
+*, *:before, *:after {
+  margin:0;
+  padding:0;
+  font-family: roboto,sans-serif;
+}
+
+ .container{
+  width: 95vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+/* remove a linha dos links */
+a{
+  text-decoration: none;
+}
+
+/* esconde as ancoras da tela */
+a.links{
+  display: none;
+}
+.content{
+  width: 400px;
+  min-height: 560px;    
+  margin: 0px auto;
+  position: relative;
+
+}
+h1{
+  font-size: 29px;
+  color: #fff;
+  padding: 2px 0 0px 0;
+  font-family: Roboto,sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 0px;
+}
+h1:after{
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 10px;
+  background: -webkit-linear-gradient(left, rgba(68, 132, 203,0) 0%,rgba(68, 132, 203,0.8) 20%,rgba(68, 132, 203,1) 53%,rgba(68, 132, 203,0.8) 79%,
+    rgba(68, 132, 203,0) 100%); 
+  background: linear-gradient(left, rgba(68, 132, 203,0) 0%,rgba(68, 132, 203,0.8) 20%,rgba(68, 132, 203,1) 53%,rgba(68, 132, 203,0.8) 79%,rgba(68, 132, 203,0) 100%); 
+}
+p{
+  margin-bottom:15px;
+}
+ 
+.content p:first-child{
+  margin: 0px;
+}
+ 
+ 
+label{
+  color: #fff;
+  padding-left:39px;
+    
+}
+  /* placeholder */
+::-webkit-input-placeholder  {
+  color: #bebcbc; 
+  font-style: italic;
+}
+ 
+input:-moz-placeholder,
+textarea:-moz-placeholder{
+  color: #bebcbc;
+  
+  
+}
+input {
+  outline: none;
+
+  
+}
+a{
+  color: #fff;
+  padding-left:43px;
+}
+/*estilo dos input,  menos o checkbox */
+input:not([type="checkbox"]){
+ width: 70%;
+  margin-top: 4px;
+  padding: 10px;    
+  border: 0px  #b2b2b2;
+  position: relative;
+  display: block;margin: 0 auto;
+ 
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+ 
+  
+ 
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+ 
+/*estilo do botão submit */
+input[type="submit"]{
+  width: 80%;
+  cursor: pointer;  
+  background: #00bfff;
+  padding: 8px 5px;
+  color: #fff;
+  font-size: 20px;  
+  border: 0px solid #fff;   
+  margin-bottom: 10px;  
+  
+  display: block;
+  position: relative;
+  margin: 0 auto;
+ 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+ 
+  transition: all 0.2s linear;
+}
+ 
+/*estilo do botão submit no hover */
+input[type="submit"]:hover{
+  background: #4ab3c6;
+ 
+
+}
+
+#recuperar{
+  position: absolute;
+  top: 0px;
+  padding: 18px 6% 60px 6%;
+  margin: 0 0 35px 0;
+  background: #4776a1;
+  border: 1px solid rgba(147, 184, 189,0.8);
+  -webkit-box-shadow: 5px;
+  border-radius: 5px;
+   
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+ 
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+}
+/* Efeito ao clicar no botão  */
+
+.content #recuperar{
+  z-index: 2;
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+ 
+  -webkit-animation-delay: .1s;
+  animation-delay: .1s;
+}
+ 
+.iconerec{
+  position: absolute; 
+  left: 630px;
+  top: 115px;
+  z-index: 2;
+}
+body{
+  background-image:url(fundorec.png); 
+}
+  </style>
+
+</head>
+<body style="background-image: url(<%= asset_path("fundorec.png")%>); background-repeat: no-repeat">
+  
+ <img src="<%= image_url('icone.png') %>" class="iconerec" alt="icone covid"> 
+  
+  <div class="container" >
+  	 <img src="<%= image_url('icone.png') %>" class="iconerec" alt="icone covid"> 
+<form class="new_user" id="new_user" action="/users/password" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="eyT0tjqAXtjMeUOZPQHxc2CW1+54XVclezsJs6tUrImKcBt3jJbCtpa7lwu2dwcZoImXt0EUcazCYqTDlW01Kw==" />
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <div class="content">
+      <div id="recuperar">
+        <form method="post" action="">
+          <h1>Recuperação de Senha</h1>
+          <p>
+            <label for="user_email">Email</label><br />
+    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" placeholder="Digite seu email" />
+          </p>
+          <p><br>
+            <input type="submit" name="commit" value="Recuperar" data-disable-with="Enviando Email" />
+          </p>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+   </form>
+  <script>
+    $('#errors-modal').modal('show');
+  </script>
+</body>
+</html>
