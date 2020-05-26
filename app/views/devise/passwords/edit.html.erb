@@ -153,53 +153,51 @@ animation-delay: .1s;
 }
 </style>
 
-
 <head>
   <title>Covid-19</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="viewport" content="width=320px">
   <meta name="viewport" content="height=device-height">
-
+  
 </head>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
+<%= f.hidden_field :reset_password_token, reset_password_token: @token %>
+
 <body style="background-image: url(<%= asset_path("fundotr.png")%>); background-repeat: no-repeat">
-  <div style="margin-top: 100px;">
+  <div style="margin-top: 60px;">
   </div>
 <div class="container">
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-    <div class="field">
-
-      <div class="content">
-        <div id="recuperar">
-          <form method="post" action=""> 
-            <h1>Mudança de Senha</h1>
-            <p>
-              <label for="user_password">Nova Senha</label>
-              <div data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senha inválida" id ="text-senha">
-                <input autofocus="autofocus" autocomplete="new-password" type="password" name="user[password]" id="user_password"/>
-                <small id="senhaHelp" class="form-text text-muted">A senha deve conter 8 Caracteres: Letra Maiúscula e
-                </br> Minúscula,
-                Caracter especial e Número</small>
-            </div>
-            </p>
-
-        <div class="field">
-            <form method="post" action="">
-                <p>
-                  <label for="user_password_confirmation">Confirme a nova senha</label><br />
-                  <div data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senhas não conferem" id ="text-senhaconf">
-                    <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" /><br><br>
-                  </div>
-                </p>
-                <p>
-                  <input type="submit" name="commit" value="CONFIRMAR" data-disable-with="Realizando mudança..." />
-                </p>
+    <div class="content">
+      <div id="recuperar">
+          <h1>Mudança de Senha</h1>
+          <p>
+            <label for="user_password">Nova Senha</label>
+            <div data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senha inválida" id ="text-senha">
+              <input autofocus="autofocus" autocomplete="new-password" type="password" name="user[password]" id="user_password"/>
+              <small id="senhaHelp" class="form-text text-muted">A senha deve conter 8 Caracteres: Letra Maiúscula e
+              </br> Minúscula,
+              Caracter especial e Número</small>
           </div>
+          </p>
+
+      <div class="field">
+              <p>
+                <label for="user_password_confirmation">Confirme a nova senha</label><br />
+                <div data-placement="right" data-trigger= "manual" data-toggle="popover" data-content="Senhas não conferem" id ="text-senhaconf">
+                  <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" /><br><br>
+                </div>
+              </p>
+              <p>
+                <input type="submit" name="commit" value="CONFIRMAR" data-disable-with="Realizando mudança..." />
+              </p>
         </div>
       </div>
-    </div>
+  </div>
+</div>
+</body>
 <% end %>
+
 
   <script type="text/javascript">
     var password = new RegExp('(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*');
