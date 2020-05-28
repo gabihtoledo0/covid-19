@@ -328,27 +328,6 @@
 
 <!-- ------------------  todos -->
 
-<div class="section-head text-center wide-lg padding" style="position: relative; left: 350px;">
-    <h5 class="subtitle" style="font-family: Raleway, sans-serif; font-size: 16px; line-height: 30px;">Como você possui criança na sua residência, separamos algumas leituras nesse período :)</h5>
-    <h2 class="title" style="font-weight: 700; font-family: Oswald, sans-serif; line-height: 1.3; margin-bottom: 0.5rem; color: #50658e; font-size: 2.25rem;">Cartilhas e Contos</h2>
-    <p style="color: #50658e " align="justify">
-    Muitas delas tiveram mudanças na rotina por causa da pandemia de Covid-19, e 
-    a publicação busca esclarecer o atual cenário ao público infantil, a partir de uma linguagem fácil e divertida.
-    Clique na imagem para acessar a cartilha.
-  </p> 
-  <p><a href="https://www.saude.gov.br/images/pdf/2020/April/06/Cartilha--Crian--as-Coronavirus.pdf"><img style="max-width: 70%;"  src="<%= image_url('cartilha.jpg') %>"></a>
-  </p>
-    <p>Abaixo estão alguns contos</p>
-      <p>
-      <table>
-              <tr>
-            <th><a href="https://catve.com/arquivos/15840192955e6a375f71bfd.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto1.png') %>" ></a></th>
-            <th><a href="http://organizemeucondominio.com.br/downloads/Isolamento_2020.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto2.png') %>"  ></a></th>
-            <th><a href="https://www.ibfeduca.com.br/shared/upload/acon_agenda/15_2054_3038.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto3.png') %>"  ></a></th>
-              </tr>
-            </table>
-      </p>
-</div>
 
 <div class="container-quarentena">
   <div class="row padding">
@@ -420,6 +399,30 @@
     </div>
     </div>
   </div>
+  
+
+<div class="section-head text-center wide-lg padding" style="position: relative; left: 350px; height: 950px;">
+  <h5 class="subtitle" style="font-family: Raleway, sans-serif; font-size: 16px; line-height: 30px;">Como você possui criança na sua residência, separamos algumas leituras nesse período :)</h5>
+  <h2 class="title" style="font-weight: 700; font-family: Oswald, sans-serif; line-height: 1.3; margin-bottom: 0.5rem; color: #50658e; font-size: 2.25rem;">Cartilhas e Contos</h2>
+  <p style="color: #50658e " align="justify">
+  Muitas delas tiveram mudanças na rotina por causa da pandemia de Covid-19, e 
+  a publicação busca esclarecer o atual cenário ao público infantil, a partir de uma linguagem fácil e divertida.
+  Clique na imagem para acessar a cartilha.
+</p> 
+<p><a href="https://www.saude.gov.br/images/pdf/2020/April/06/Cartilha--Crian--as-Coronavirus.pdf"><img style="max-width: 70%;"  src="<%= image_url('cartilha.jpg') %>"></a>
+</p>
+  <p>Abaixo estão alguns contos</p>
+    <p>
+    <table>
+            <tr>
+          <th><a href="https://catve.com/arquivos/15840192955e6a375f71bfd.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto1.png') %>" ></a></th>
+          <th><a href="http://organizemeucondominio.com.br/downloads/Isolamento_2020.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto2.png') %>"  ></a></th>
+          <th><a href="https://www.ibfeduca.com.br/shared/upload/acon_agenda/15_2054_3038.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto3.png') %>"  ></a></th>
+            </tr>
+          </table>
+    </p>
+</div>
+
 
   <div class="container-quiz">
     <div class="row padding">
@@ -456,6 +459,7 @@
         <img src="<%= image_url('medico-corona.png') %>" class="imagem-medico" style="width: 350px; height: 350px; position: relative; left: 80px;" alt="simbolo-corona">
       </div>
       <div class="col-sm" style="position: relative; top: 50px;">
+        <p style="font-size: 14px; font-family: Raleway;">* Clique em <i>"Visualizar mapa ampliado"</i> para preencher seu CEP</p>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14639.433016428047!2d-46.3145073!3d-23.4655769!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1590104375065!5m2!1spt-BR!2sbr"
           width="700"
@@ -571,7 +575,6 @@
       background-repeat: no-repeat;
       background-size: cover;
       height: 900px;
-      border-radius: 0 0 50px 50px;
     }
 
     .container-vermelho {
