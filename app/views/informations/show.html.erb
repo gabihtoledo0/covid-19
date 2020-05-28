@@ -261,6 +261,53 @@
   </div>
   </div>
 
+  <div class="container-maior container-sm">
+    <div class="margem">
+      <div class="row">
+        <div class="col-sm">
+          <p class="titulo-h3">Você não está no grupo de risco!</p>
+          <p class="subtitulo-cinza">Mesmo assim precisa reforçar alguns cuidados e medidas para combater o vírus:</p>
+      </div>
+      <div class="col-sm" align="center">
+        <img src="<%= image_url('coronaa.png') %>" class="risco" alt="grupo de risco">
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm card">
+        <p class="subtitulo-cinza-negrito">• Higienização frequente das mãos com água e sabonete (durante 30s) ou álcool gel a 70%;</p>
+        <img src="<%= image_url('maos.png') %>" style="width: 150px; height: 150px; position: relative; left: 130px; top: 20px" alt="dar as mãos">
+      </div>
+      <div class="col-sm card">
+        <p class="subtitulo-cinza-negrito">• Seguir a “etiqueta respiratória” quando possível:</p>
+        <img src="<%= image_url('etiqueta1.jpeg') %>" style="width: 360px; height: 230px; position: relative; left: 30px; top: 20px" alt="dar as mãos">
+      </div>
+  
+      <div class="col-sm card">
+        <p class="subtitulo-cinza-negrito">• Restrição de contato social (exceto cuidadores e profissionais de saúde, quando necessário);</p>
+        <img src="<%= image_url('bonecos.png') %>" style="width: 360px; height: 230px; position: relative; left: 30px" alt="dar as mãos">
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm card">
+        <p class="subtitulo-cinza-negrito">• Evitar aglomerações e viagens;</p>
+        <img src="<%= image_url('aglomeracao.png') %>" style="width: 150px; height: 150px; position: relative; left: 130px; top: 20px" alt="dar as mãos">
+      </div>
+  
+      <div class="col-sm card">
+        <p class="subtitulo-cinza-negrito">• Evitar atividades em grupo;</p>
+        <img src="<%= image_url('grupo.png') %>" style="width: 250px; height: 200px; position: relative; left: 80px; top: 20px" alt="dar as mãos">
+      </div>
+  
+      <div class="col-sm card">
+        <p class="subtitulo-cinza-negrito">• Atenção redobrada aos cuidados com a higiene pessoal (em especial às pessoas com deficiência intelectual e motora com alto grau de dependência)</p>
+        <img src="<%= image_url('higiene.png') %>" style="width: 200px; height: 180px; position: relative; left: 130px; top: 10px" alt="dar as mãos">
+      </div>
+    </div>
+  </div>
+  </div>
+
     <div class="container-azul" style="height: 660px;">
       <div class="row subtitulo-azul padding">
         <p class="titulo-h2" style="font-size: 30px; margin-bottom: 0;">É importante ressaltar que a criança com deficiência faz parte do grupo de risco, incluindo:</p><br>
@@ -279,8 +326,30 @@
     </div>
 
 
-
 <!-- ------------------  todos -->
+
+<div class="section-head text-center wide-lg padding" style="position: relative; left: 350px;">
+    <h5 class="subtitle" style="font-family: Raleway, sans-serif; font-size: 16px; line-height: 30px;">Como você possui criança na sua residência, separamos algumas leituras nesse período :)</h5>
+    <h2 class="title" style="font-weight: 700; font-family: Oswald, sans-serif; line-height: 1.3; margin-bottom: 0.5rem; color: #50658e; font-size: 2.25rem;">Cartilhas e Contos</h2>
+    <p style="color: #50658e " align="justify">
+    Muitas delas tiveram mudanças na rotina por causa da pandemia de Covid-19, e 
+    a publicação busca esclarecer o atual cenário ao público infantil, a partir de uma linguagem fácil e divertida.
+    Clique na imagem para acessar a cartilha.
+  </p> 
+  <p><a href="https://www.saude.gov.br/images/pdf/2020/April/06/Cartilha--Crian--as-Coronavirus.pdf"><img style="max-width: 70%;"  src="<%= image_url('cartilha.jpg') %>"></a>
+  </p>
+    <p>Abaixo estão alguns contos</p>
+      <p>
+      <table>
+              <tr>
+            <th><a href="https://catve.com/arquivos/15840192955e6a375f71bfd.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto1.png') %>" ></a></th>
+            <th><a href="http://organizemeucondominio.com.br/downloads/Isolamento_2020.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto2.png') %>"  ></a></th>
+            <th><a href="https://www.ibfeduca.com.br/shared/upload/acon_agenda/15_2054_3038.pdf"><img style="max-width: 80%;  "  src="<%= image_url('conto3.png') %>"  ></a></th>
+              </tr>
+            </table>
+      </p>
+</div>
+
 <div class="container-quarentena">
   <div class="row padding">
     <div class="col-sm-8">
@@ -337,6 +406,48 @@
     </div>
   </div>
 </div>
+
+  <div class="container-vermelho">
+    <div class="row padding">
+      <p class="titulo-vermelho">Se você puder,</p>
+    </div>
+    <div class="row padding">
+      <div class="col-sm-7">
+      <p class="subtitulo-vermelho">FIQUE EM CASA</p>
+    </div>
+    <div class="col-sm-5">
+      <img src="<%= image_url('casaa.png') %>" class="imagem-casa"  alt="fique em casa">
+    </div>
+    </div>
+  </div>
+
+  <div class="container-quiz">
+    <div class="row padding">
+      <p class="titulo-vermelho-quiz">Fake News crescem no Brasil</p>
+    </div>
+    <div class="row padding">
+      <div class="col-sm-6">
+        <p class="subtitulo-preto">
+          Não é de hoje que mentiras são divulgadas como verdades, mas foi com o advento das
+          redes sociais que esse tipo de publicação popularizou-se. A imprensa internacional começou a
+          usar com mais frequência o termo fake news durante a eleição de 2016 nos Estados Unidos, na
+          qual Donald Trump tornou-se presidente. Fake news é um termo em inglês e é usado para referir-se
+          a falsas informações divulgadas, principalmente, em redes sociais.<br>
+          Com a circulação do novo Covid-19 não foi diferente, de 17 de março a 10 de abril, os dados revelaram que 65% das informações
+          falsas que circularam no período apresentavam métodos caseiros para prevenir o vírus. Entretanto,
+          vale ressaltar, ainda não há comprovação científica que justifique métodos que não sejam aqueles
+          indicados por autoridades de saúde.<br>
+          “Uma guerra nas redes sociais envolvendo informações enganosas, ambíguas e falsas além das
+          consequências negativas para a saúde pública, prejudicaram a adesão a medidas de distanciamento social”.
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <img src="<%= image_url('fake-news.png') %>" class="imagem-fake" alt="quiz fake news"><br><br>
+        <p class="subtitulo-preto" style="text-align: center;">Será que você sabe diferenciar uma notícia verdadeira<br> de uma fake news? Confira no nosso Quiz!</p>
+        <button type="button" class="botao-finalizar botao-jogar">JOGAR AGORA</button>
+      </div>
+    </div>
+  </div>
 
   <div class="container-azul">
     <div class="row padding">
@@ -397,6 +508,17 @@
     width: 400px;
   }
 
+  .imagem-fake {
+    position: relative;
+    width: 400px;
+    left: 120px;
+  }
+
+  .botao-jogar {
+    position: relative;
+    left: 250px;
+  }
+
   .cancer {
     position: relative;
     right: 0;
@@ -444,6 +566,22 @@
       background-size: cover;
       height: 600px;
     }
+    .container-quiz {
+      background-image: url(/assets/quiz.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 900px;
+      border-radius: 0 0 50px 50px;
+    }
+
+    .container-vermelho {
+      background-image: url(/assets/red.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 600px;
+      border-radius: 0 0 50px 50px;
+    }
+
     .margem {
       margin: 60px 40px 0 40px;
     }
@@ -469,9 +607,30 @@
         position: relative;
         top: 20px;
       }
+      .subtitulo-vermelho {
+        font-family: 'Oswald-Bold', sans-serif;
+        color: #ff8d02;
+        font-size: 110px;
+        position: relative;
+        bottom: 30px;
+      }
 
+      .titulo-vermelho {
+        font-family: 'Raleway', sans-serif;
+        color: #000000;
+        font-size: 40px;
+        position: relative;
+        left: 20px;
+      }
 
-    .container-menor {
+      .imagem-casa {
+        bottom: 50px;
+        width: 500px;
+        border-radius: 30px;
+        position: relative;
+      }
+
+      .container-menor {
       height: 300px;
       background-image: url(/assets/azul.jpeg);
       background-repeat: no-repeat;
@@ -517,6 +676,13 @@
       line-height: 40px;
       position: relative;
     }
+    .subtitulo-preto {
+      font-family: 'Raleway', sans-serif;
+      color: #242424;
+      font-size: 20px;
+      line-height: 40px;
+      position: relative;
+    }
 
     .subtitulo-cinza-negrito {
       font-family: 'Raleway', sans-serif;
@@ -540,6 +706,14 @@
         font-size: 50px;
         color: #191970;
         margin-bottom: 40px;
+    }
+    .titulo-vermelho-quiz {
+      font-family: 'Oswald-Bold', sans-serif;
+      font-size: 50px;
+      color: #b30000;
+      margin-bottom: 40px;
+      left: 13px;
+      position: relative;
     }
 
     .titulo-h3 {
