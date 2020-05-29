@@ -48,7 +48,9 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav" align="center">
         <a class="nav-item nav-link" href="/games/new">Quiz</a>
-        <a class="nav-item nav-link" href="/informations/show">Minha Área</a>
+        <% unless current_user.nil? %>
+          <a class="nav-item nav-link" href="/informations/show">Minha Área</a>
+        <% end %>
         <a class="nav-item nav-link" href="/users/sign_in">Login</a>
         <a class="nav-item nav-link" href="/users/sign_up">Cadastro</a>
       </div>
