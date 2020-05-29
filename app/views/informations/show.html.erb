@@ -230,7 +230,7 @@
 </div>
 <% end %>
 
-<% if @user.nenhuma == false && @user.idadee > 60 %>
+<% if @user.nenhuma == false || @user.idadee > 60 %>
 <!-- -------------------------- grupo de risco ------------------ -->
   <div class="container-maior container-sm">
     <div class="margem">
@@ -297,6 +297,7 @@
   </div>
 <% end %>
 
+
 <% if @user.nenhuma == true && @user.idadee < 60 %>
   <div class="container-maior container-sm">
     <div class="margem">
@@ -319,24 +320,24 @@
         <p class="subtitulo-cinza-negrito">• Seguir a “etiqueta respiratória” quando possível:</p>
         <img src="<%= image_url('etiqueta1.jpeg') %>" style="width: 360px; height: 230px; position: relative; left: 30px; top: 20px" alt="dar as mãos">
       </div>
-  
+
       <div class="col-sm card">
         <p class="subtitulo-cinza-negrito">• Restrição de contato social (exceto cuidadores e profissionais de saúde, quando necessário);</p>
         <img src="<%= image_url('bonecos.png') %>" style="width: 360px; height: 230px; position: relative; left: 30px" alt="dar as mãos">
       </div>
     </div>
-  
+
     <div class="row">
       <div class="col-sm card">
         <p class="subtitulo-cinza-negrito">• Evitar aglomerações e viagens;</p>
         <img src="<%= image_url('aglomeracao.png') %>" style="width: 150px; height: 150px; position: relative; left: 130px; top: 20px" alt="dar as mãos">
       </div>
-  
+
       <div class="col-sm card">
         <p class="subtitulo-cinza-negrito">• Evitar atividades em grupo;</p>
         <img src="<%= image_url('grupo.png') %>" style="width: 250px; height: 200px; position: relative; left: 80px; top: 20px" alt="dar as mãos">
       </div>
-  
+
       <div class="col-sm card">
         <p class="subtitulo-cinza-negrito">• Atenção redobrada aos cuidados com a higiene pessoal (em especial às pessoas com deficiência intelectual e motora com alto grau de dependência)</p>
         <img src="<%= image_url('higiene.png') %>" style="width: 200px; height: 180px; position: relative; left: 130px; top: 10px" alt="dar as mãos">
