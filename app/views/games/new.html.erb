@@ -1,9 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
-<body>
+<html lang="pt-br">
+<style type="text/css">
+  *, *:before, *:after {
+  margin:0;
+  padding:0;
+}
+
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+.container {
+  width: 30vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0059A0; 
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+
+}
+.container3{
+ 
+  width: 28vw;
+  height: 20vh;  
+  top: -56px; 
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.question-container{
+  text-align: center;
+}
+
+#question{
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+  font-family: 'Oswald-Bold', sans-serif;
+}
+
+.btn {
+  --hue: var(--hue-neutral);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 50px;
+  padding: 5px ;
+  color: white;
+  outline: none;
+  position: relative;
+  top: 100px;
+  border-radius:28px;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-size:17px;
+  font-family: 'Oswald-Bold', sans-serif;
+  padding:10px 31px;
+  text-decoration:none;
+}
+
+
+.btn.correct {
+  --hue: var(--hue-correct);
+  color: black;
+  font-family: 'Oswald-Bold', sans-serif;
+
+}
+
+.btn.wrong {
+  --hue: var(--hue-wrong);
+  font-family: 'Oswald-Bold', sans-serif;
+}
+
+
+.start-btn, .next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-image: url(/assets/icone.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  padding: 10px 20px;
+  background-color:#ff8d02;
+  font-family: 'Oswald-Bold', sans-serif;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#191970;
+  font-family:Arial;
+  font-size:17px;
+  padding:16px 31px;
+  text-decoration:none;
+}
+
+.start-btn:hover {
+  background-color:#ffbf71;
+  color: #191970;
+}
+
+.next-btn:hover {
+  background-color:#ffbf71;
+  color: #191970;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.doctor{
+  position: relative; 
+  left: 100px;
+  top: -400px;
+}
+.icon2{
+  position: relative; 
+  left: 415px;
+  top: -550px;
+}
+
+</style>
+
+<body style="background-image: url(<%= asset_path("fundoquiz.jpg")%>); background-repeat: no-repeat; ">
   <div style="margin-top: 200px;">
   </div>
   <div class="container">
+    <div class="container3">
     <div id="question-container" class="hide">
       <div id="question">Question</div>
       <div id="answer-buttons" class="btn-grid">
@@ -13,16 +155,20 @@
         <button class="btn">Answer 4</button>
       </div>
     </div>
-    <div class="controls">
-      <button id="start-btn" class="start-btn btn">Começar</button>
-      <button id="next-btn" class="next-btn btn hide">Próximo</button>
+   <div class="controls">
+      <button id="start-btn" class="start-btn btn">COMEÇAR</button>
+      <button id="next-btn" class="next-btn btn hide">PRÓXIMO</button>
     </div>
   </div>
+  </div>
+
+  <img style="max-width: 20%"; src="<%= image_url('doctor.png') %>" class="doctor" >
+  <img style="max-width: 5%" src="<%= image_url('icon2.png') %>" class="icon2" >
 </body>
 </html>
 
 <script>
-  const startButton = document.getElementById('start-btn')
+const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
@@ -38,7 +184,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   startButton.classList.add('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  shuffledQuestions = questions.sort(() => Math.random() - .4)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
@@ -81,7 +227,7 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
   } else {
-    startButton.innerText = 'Restart'
+    startButton.innerText = 'JOGAR NOVAMENTE'
     startButton.classList.remove('hide')
   }
 }
@@ -102,7 +248,7 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-    question: 'O Coronavírus é um vírus novo que tem causado muitas mortes ao redor do mundo?',
+    question: 'O Covid-19 é um vírus novo que tem causado muitas mortes ao redor do mundo?',
     answers: [
       { text: 'Verdadeiro', correct: true },
       { text: 'Falso', correct: false }
@@ -129,93 +275,6 @@ const questions = [
       { text: 'Falso', correct: false }
     ]
   }
+
 ]
 </script>
-
-<style>
-*, *::before, *::after {
-  box-sizing: border-box;
-  font-family: Gotham Rounded;
-}
-
-:root {
-  --hue-neutral: 200;
-  --hue-wrong: 0;
-  --hue-correct: 145;
-}
-
-body {
-  --hue: var(--hue-neutral);
-  padding: 0;
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  background-color: hsl(var(--hue), 100%, 20%);
-}
-
-body.correct {
-  --hue: var(--hue-correct);
-}
-
-body.wrong {
-  --hue: var(--hue-wrong);
-}
-
-.container {
-  width: 800px;
-  max-width: 80%;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 10px 2px;
-}
-
-.btn-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.btn {
-  --hue: var(--hue-neutral);
-  border: 1px solid hsl(var(--hue), 100%, 30%);
-  background-color: hsl(var(--hue), 100%, 50%);
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: white;
-  outline: none;
-}
-
-.btn:hover {
-  border-color: black;
-}
-
-.btn.correct {
-  --hue: var(--hue-correct);
-  color: black;
-}
-
-.btn.wrong {
-  --hue: var(--hue-wrong);
-}
-
-.start-btn, .next-btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px 20px;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hide {
-  display: none;
-}
-</style>
-

@@ -1,0 +1,272 @@
+@media (min-width: 420px) {
+  .container {
+    max-width: 414px; } }
+  @media (min-width: 576px) {
+  .container {
+    max-width: 540px; } }
+  @media (min-width: 768px) {
+  .container {
+    max-width: 720px; } }
+  @media (min-width: 992px) {
+  .container {
+    max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px; } }
+  
+    .container-azul {
+        background-color: #96b2e7;
+        height: 600px;
+        border-radius: 0 0 50px 50px;
+      }
+  
+      .container-azul-imagem {
+        background-image: url(/assets/fundo-escuro-pequeno.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+      }
+      .container-quiz {
+        background-image: url(/assets/quiz.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 900px;
+      }
+  
+      .container-vermelho {
+        background-image: url(/assets/red.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+        border-radius: 0 0 50px 50px;
+      }
+  
+      .container-corona {
+        height: 800px;
+      }
+      .container-quarentena {
+        height: 1900px;
+      }
+  
+  
+      .container-menor {
+        height: 300px;
+        background-image: url(/assets/azul.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 0 0 50px 50px;
+        height: 400px;
+      }
+  
+      .container-maior {
+        height: 1300px;
+      }
+  
+  
+    .hipertensao {
+      right: 0;
+      left: 90px;
+      width: 400px;
+      position: relative;
+      top: 100px;
+    }
+  
+    .card {
+      background-color: rgb(236, 236, 236);
+      height: 350px;
+      border-radius: 10px;
+    }
+  
+    .diabetes {
+      position: relative;
+      right: 0;
+      left: 140px;
+      top: 30px;
+      width: 200px;
+    }
+    .gestante {
+      position: relative;
+      right: 0;
+      left: 140px;
+      top: 100px;
+      width: 300px;
+    }
+    .quarentena {
+      width: 400px;
+    }
+  
+    .imagem-fake {
+      position: relative;
+      width: 400px;
+      left: 120px;
+    }
+  
+    .botao-jogar {
+      position: relative;
+      left: 250px;
+    }
+  
+    .cancer {
+      position: relative;
+      right: 0;
+      left: 140px;
+      top: 50px;
+      width: 300px;
+    }
+  
+    .cardio {
+      position: relative;
+      right: 0;
+      left: 140px;
+      top: 120px;
+      width: 300px;
+    }
+    .idoso {
+      position: relative;
+      right: 0;
+      left: 140px;
+      top: 70px;
+      width: 300px;
+    }
+  
+    .asma {
+      position: relative;
+      right: 0;
+      left: 90px;
+      width: 300px;
+    }
+      .minha-area {
+        position: relative;
+        right: 100px;
+        top: 100px;
+        width: 600px;
+      }
+  
+      .margem {
+        margin: 60px 40px 0 40px;
+      }
+      .risco {
+        height: 400px;
+        margin-bottom: 80px;
+      }
+  
+      .padding {
+        padding: 60px 40px 0 40px;
+      }
+  
+      .texto {
+          font-family: 'Roboto', sans-serif;
+          color: #191970;
+          font-size: 16px;
+          position: relative;
+          top: 20px;
+        }
+        .subtitulo-vermelho {
+          font-family: 'Oswald-Bold', sans-serif;
+          color: #ff8d02;
+          font-size: 110px;
+          position: relative;
+          bottom: 30px;
+        }
+  
+        .titulo-vermelho {
+          font-family: 'Raleway', sans-serif;
+          color: #000000;
+          font-size: 40px;
+          position: relative;
+          left: 20px;
+        }
+  
+        .imagem-casa {
+          bottom: 50px;
+          width: 500px;
+          border-radius: 30px;
+          position: relative;
+        }
+  
+      .subtitulo {
+          font-family: 'Raleway', sans-serif;
+          color: #191970;
+          font-size: 25px;
+          position: relative;
+          left: 60px;
+          top: 20px;
+        }
+  
+        .subtitulo-azul {
+          font-family: 'Raleway', sans-serif;
+          color: #191970;
+          position: relative;
+          top: 20px;
+          position: relative;
+          line-height: 40px;
+          font-size: 20px;
+          left: 0;
+        }
+  
+      .subtitulo-laranja {
+        font-family: 'Raleway', sans-serif;
+        color: #ff8d02;
+        font-size: 25px;
+        position: relative;
+      }
+      .subtitulo-cinza {
+        font-family: 'Raleway', sans-serif;
+        color: #626262;
+        font-size: 25px;
+        line-height: 40px;
+        position: relative;
+      }
+      .subtitulo-preto {
+        font-family: 'Raleway', sans-serif;
+        color: #242424;
+        font-size: 20px;
+        line-height: 40px;
+        position: relative;
+      }
+  
+      .subtitulo-cinza-negrito {
+        font-family: 'Raleway', sans-serif;
+        color: #626262;
+        font-size: 18px;
+        line-height: 30px;
+        position: relative;
+        font-weight: bold;
+      }
+  
+      .col {
+        padding: 0;
+      }
+  
+      .row {
+        margin: 0;
+      }
+  
+      .titulo-h2 {
+          font-family: 'Oswald-Bold', sans-serif;
+          font-size: 50px;
+          color: #191970;
+          margin-bottom: 40px;
+      }
+      .titulo-vermelho-quiz {
+        font-family: 'Oswald-Bold', sans-serif;
+        font-size: 50px;
+        color: #b30000;
+        margin-bottom: 40px;
+        left: 13px;
+        position: relative;
+      }
+  
+      .titulo-h3 {
+          font-family: 'Oswald-Bold', sans-serif;
+          font-size: 40px;
+          color: #ff8d02;
+          margin-bottom: 40px;
+      }
+  
+      .titulo {
+        font-family: 'Oswald-Bold', sans-serif;
+        font-size: 30px;
+        color: #ff8d02;
+        margin-bottom: 40px;
+      }
