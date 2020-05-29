@@ -34,17 +34,15 @@
 
 }
 
-
 .question-container{
   text-align: center;
 }
 
-#question{
+.question{
   font-family: 'Raleway', sans-serif;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
-
 }
 
 .btn-grid {
@@ -135,8 +133,8 @@
 }
 .icon2{
   position: relative; 
-  left: 415px;
-  top: -550px;
+  left: 400px;
+  bottom: 560px;
 }
 
 </style>
@@ -147,7 +145,7 @@
   <div class="container">
     <div class="container3">
     <div id="question-container" class="hide">
-      <div id="question">Question</div>
+      <div id="question" class="question">Question</div>
       <div id="answer-buttons" class="btn-grid">
         <button class="btn">Answer 1</button>
         <button class="btn">Answer 2</button>
@@ -248,28 +246,70 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-    question: 'O Covid-19 é um vírus novo que tem causado muitas mortes ao redor do mundo?',
+    question: 'O Covid-19 é um vírus novo que tem causado muitas mortes ao redor do mundo.',
     answers: [
       { text: 'Verdadeiro', correct: true },
       { text: 'Falso', correct: false }
     ]
   },
   {
-    question: 'Os sinais clínicos do Coronavírus são principalmente respiratórios, febre, tosse e dificuldade para respirar?',
+    question: 'Os sinais clínicos do Coronavírus são principalmente respiratórios, febre, tosse e dificuldade para respirar.',
     answers: [
-      { text: 'Sim', correct: true },
-      { text: 'Não', correct: false },
+      { text: 'Verdadeiro', correct: true },
+      { text: 'Falso', correct: false },
     ]
   },
   {
-    question: 'Pessoas com doenças respiratórias, diabetes ou gestantes não estão no grupo de risco e devido a isso podem andar pela cidade tranquilamente ',
+    question: 'Pessoas com doenças respiratórias, diabetes ou gestantes não estão no grupo de risco e devido a isso podem andar pela cidade tranquilamente.',
     answers: [
       { text: 'Verdadeiro', correct: false },
       { text: 'Falso', correct: true },
     ]
   },
   {
-    question: 'Caso a pessoa não esteja no grupo de risco ela ainda deverá ficar em casa para não transmitir ou adquirir o vírus',
+    question: 'Caso a pessoa não esteja no grupo de risco ela ainda deverá ficar em casa para não transmitir ou adquirir o vírus.',
+    answers: [
+      { text: 'Verdadeiro', correct: true },
+      { text: 'Falso', correct: false }
+    ]
+  },
+  {
+    question: 'Caso venha a contrair o vírus, a melhor forma de tratamento é beber água quente ou chá, para elimina-lo',
+    answers: [
+      { text: 'Verdadeiro', correct: false },
+      { text: 'Falso', correct: true }
+    ]
+  },
+  {
+    question: 'Como ato de se prevenir da Covid-19, é essencial evitar passar as mãos em corrimões, pois o coranavírus sobrevive até 12 horas em superfícies metálicas.',
+    answers: [
+      { text: 'Verdadeiro', correct: true },
+      { text: 'Falso', correct: false }
+    ]
+  },
+  {
+    question: 'O 1º país a anunciar 100% de efetividade na vacina contra o Covid-19 é o país Cuba',
+    answers: [
+      { text: 'Verdadeiro', correct: false },
+      { text: 'Falso', correct: true }
+    ]
+  },
+  {
+    question: 'Andar de carro com o ar condicionado ligado pode facilitar a transmissão do corona vírus.',
+    answers: [
+      { text: 'Verdadeiro', correct: true },
+      { text: 'Falso', correct: false }
+    ]
+  },
+  {
+    question: 'Tendo em vista que a Covid-19 é um vírus "novo", podemos concluir que a taxa de mortalidade é maior que de outros vírus já existentes.',
+    answers: [
+      { text: 'Verdadeiro', correct: false },
+      { text: 'Falso', correct: true }
+    ]
+  },
+  {
+    question: 'Como a tecnologia anda ao nosso lado diariamente e nossos celulares se tornam um grande aliado, então podemos concluir que a tela do celular pode ser um possível transmissor do vírus.',
     answers: [
       { text: 'Verdadeiro', correct: true },
       { text: 'Falso', correct: false }
