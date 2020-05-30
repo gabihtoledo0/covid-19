@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:emailcheck]
   skip_before_action :verify_authenticity_token, only: [:emailcheck]
-  @user.send_reset_password_instructions
+  # @user.send_reset_password_instructions
 
   def index
     @users = User.all
