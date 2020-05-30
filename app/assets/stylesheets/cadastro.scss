@@ -29,7 +29,7 @@
 
   .fundo-externo {
     
-    background-image: url(/assets/fundo-escuro-pequeno.jpeg);
+    background-image: url(<%= asset_path("fundo-escuro-pequeno.jpeg")%>);
     background-attachment: fixed;
     background-position: center top;
     background-repeat: no-repeat;
@@ -90,7 +90,7 @@
 
   .botao-finalizar {
     background-color: #ff8d02;
-    background-image: url(/assets/icone.png);
+    background-image: url(<%= asset_path("icone.png")%>);
     background-position: right;
     background-repeat: no-repeat;
     border-radius: 20px;
@@ -103,7 +103,7 @@
   }
   .botao-cancelar {
     background-color: #ff8d02;
-    background-image: url(/assets/icone.png);
+    background-image: url(<%= asset_path("icone.png")%>);
     background-position: right;
     background-repeat: no-repeat;
     border-radius: 20px;
