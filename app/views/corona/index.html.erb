@@ -5403,11 +5403,62 @@ html, body { font-family: "Roboto", sans-serif; color: #50658e; font-size: 16px;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+      .container-quiz {
+        background-image: url(<%= asset_path("quiz.png")%>);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 900px;
+      }
+      .imagem-fake {
+      position: relative;
+      width: 400px;
+      left: 120px;
+    }
+
+    .botao-jogar {
+      position: relative;
+      left: 250px;
+    }
+    .padding {
+        padding: 60px 40px 0 40px;
+      }
+
+      .subtitulo-preto {
+        font-family: 'Raleway', sans-serif;
+        color: #242424;
+        font-size: 20px;
+        line-height: 40px;
+        position: relative;
+      }
+
+      .titulo-vermelho-quiz {
+        font-family: 'Oswald-Bold', sans-serif;
+        font-size: 50px;
+        color: #b30000;
+        margin-bottom: 40px;
+        left: 13px;
+        position: relative;
+      }
+
+      .botao-finalizar {
+        background-color: #ff8d02;
+        background-image: url(<%= asset_path("icone.png")%>);
+        background-position: right;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+        width: 160px;
+        height: 40px;
+        font-size: 18px;
+        font-family: 'Oswald-Bold', sans-serif;
+        color: #191970;
+        outline: 0;
+      }
+
   </style>
 
     <title>Covid19 |Coronavirus (COVID-19) </title>
-   
-   
+
 </head>
 
 <body class="nk-body" >
@@ -5550,9 +5601,6 @@ html, body { font-family: "Roboto", sans-serif; color: #50658e; font-size: 16px;
                     </div>
 
 
-
-
-
             <section class="section section-l bg-white section-symptom" id="symptoms">
                 <div class="container2">
                     <div class="section-head text-center wide-lg">
@@ -5609,6 +5657,7 @@ html, body { font-family: "Roboto", sans-serif; color: #50658e; font-size: 16px;
                 </div><!-- .container -->
             </section><!-- .section -->
 
+
             <section class="section section-l bg-light section-blog" id="news">
                 <div class="container2">
                     <div class="section-head text-center wide-lg">
@@ -5632,6 +5681,91 @@ html, body { font-family: "Roboto", sans-serif; color: #50658e; font-size: 16px;
                 </div><!-- .container -->
             </section><!-- .section -->
         </main><!-- .nk-pages -->
+
+        <section>
+            <div style=" background-image: url(<%= asset_path("quiz.png")%>);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 900px;">
+              <div class="row padding" style="padding: 60px 40px 0 40px">
+                <p style="font-family: 'Oswald-Bold', sans-serif;font-size: 50px;color: #b30000;margin-bottom: 40px;left: 13px;position: relative;">Fake News crescem no Brasil</p>
+              </div>
+              <div class="row" style="padding: 0 40px 0 40px">
+                <div class="col-sm-6">
+                  <p style="font-family: 'Raleway', sans-serif;
+        color: #242424;
+        font-size: 20px;
+        line-height: 40px;
+        position: relative;">
+                    Não é de hoje que mentiras são divulgadas como verdades, mas foi com o advento das
+                    redes sociais que esse tipo de publicação popularizou-se. A imprensa internacional começou a
+                    usar com mais frequência o termo fake news durante a eleição de 2016 nos Estados Unidos, na
+                    qual Donald Trump tornou-se presidente. Fake news é um termo em inglês e é usado para referir-se
+                    a falsas informações divulgadas, principalmente, em redes sociais.<br>
+                    Com a circulação do novo Covid-19 não foi diferente, de 17 de março a 10 de abril, os dados revelaram que 65% das informações
+                    falsas que circularam no período apresentavam métodos caseiros para prevenir o vírus. Entretanto,
+                    vale ressaltar, ainda não há comprovação científica que justifique métodos que não sejam aqueles
+                    indicados por autoridades de saúde.<br>
+                    “Uma guerra nas redes sociais envolvendo informações enganosas, ambíguas e falsas além das
+                    consequências negativas para a saúde pública, prejudicaram a adesão a medidas de distanciamento social”.
+                  </p>
+                </div>
+                <div class="col-sm-6">
+                  <img src="<%= image_url('fake-news.png') %>" style="position: relative;
+      width: 400px;
+      left: 120px;" alt="quiz fake news"><br><br>
+                  <p style="text-align: center;font-family: 'Raleway', sans-serif;
+        color: #242424;
+        font-size: 20px;
+        line-height: 40px;
+        position: relative;">Será que você sabe diferenciar uma notícia verdadeira<br> de uma fake news? Confira no nosso Quiz!</p>
+                  <button class="botao-finalizar botao-jogar" style="position: relative;
+      left: 250px;background-color: #ff8d02;
+        background-image: url(<%= asset_path("icone.png")%>);
+        background-position: right;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+        width: 160px;
+        height: 40px;
+        font-size: 18px;
+        font-family: 'Oswald-Bold', sans-serif;
+        color: #191970;
+        outline: 0;"><a href="/games/new" target="_blank">JOGAR AGORA</a></button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <section class="section section-l bg-light section-blog" id="news">
+            <div class="container2">
+              <div class="row">
+                <div class="col-sm-6">
+              <p style="font-size: 30px;font-family: Oswald-Bold, sans-serif;">Cadastre-se no nosso site para receber informações mais detalhadas
+              de como se prevenir do covid-19 com base no seu perfil e para ter acesso ao quiz de fake news!</p>
+              <button class="botao-finalizar botao-jogar" style="position: relative;
+              left: 170px;background-color: #ff8d02;
+                background-image: url(<%= asset_path("icone.png")%>);
+                background-position: right;
+                background-repeat: no-repeat;
+                border-radius: 20px;
+                top: 30px;
+                width: 160px;
+                height: 40px;
+                font-size: 18px;
+                font-family: 'Oswald-Bold', sans-serif;
+                color: #191970;
+                outline: 0;"><a href="/users/sign_up" target="_blank">CADASTRAR-SE</a></button>
+              </div>
+            <div class="col-sm-6">
+              <img src="<%= image_url('moca.png') %>" style="position: relative;
+              width: 700px;
+              bottom: 90px;">
+            </div>
+              </div>
+            </div>
+          </section>
+
 
         <footer class="nk-footer bg-dark tc-light has-overlay">
             <div class="overlay shape shape-c"></div><!-- Overlay Shape -->
@@ -5660,7 +5794,7 @@ html, body { font-family: "Roboto", sans-serif; color: #50658e; font-size: 16px;
                     <div class="nk-footer-bottom">
                         <div class="row align-items-center">
                             <div class="col-md-6">
-                                <p class="nk-copyright">&copy; 2020 COVID-19 Feito por Leandro.</p>
+                                <p class="nk-copyright">&copy; 2020 COVID-19 Feito por Leandro Sobral dos Santos, Gabriela Toledo Prado e Gabryel Justino Wapnyk.</p>
                             </div><!-- .col -->
                            
                                 </div>
